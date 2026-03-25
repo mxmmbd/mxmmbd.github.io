@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Maxime M</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F5F4F0; --surface: #FFFFFF; --text: #111110; --muted: #6B6A65;
+      --border: rgba(17,17,16,0.1);
+      --ff-serif: 'Instrument Serif', Georgia, serif;
+      --ff-sans: 'Instrument Sans', system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--ff-sans); background: var(--bg); color: var(--text); min-height: 100vh; }
+    .page { max-width: 720px; margin: 0 auto; padding: 0 2rem; }
+
+    /* NAV */
+    nav { position: sticky; top: 0; z-index: 50; background: rgba(245,244,240,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--border); padding: 0 2rem; }
+    .nav-inner { max-width: 720px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+    .nav-name { font-family: var(--ff-serif); font-size: 1.05rem; color: var(--text); text-decoration: none; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.82rem; color: var(--muted); text-decoration: none; transition: color 0.18s; }
+    .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+    /* PAGE HEADER */
+    .page-header { padding: 4rem 0 3rem; }
+    .page-header h1 { font-family: var(--ff-serif); font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.025em; line-height: 1.1; margin-bottom: 0.75rem; }
+    .page-header h1 em { font-style: italic; color: var(--muted); }
+    .page-header p { font-size: 0.92rem; color: var(--muted); font-weight: 300; line-height: 1.75; max-width: 58ch; }
+
+    .section-sep { border: none; border-top: 1px solid var(--border); }
+    .section-label { font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.75rem; }
+
+    /* FOLDERS */
+    .folders-section { padding: 3.5rem 0; }
+    .folders-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(195px, 1fr)); gap: 1rem; }
+    .folder-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 1.25rem; text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.75rem; transition: border-color 0.18s, transform 0.2s; }
+    .folder-card:hover { border-color: rgba(17,17,16,0.4); transform: translateY(-2px); }
+    .folder-icon { width: 40px; height: 32px; }
+    .folder-icon svg { width: 40px; height: 32px; }
+    .folder-name { font-family: var(--ff-serif); font-size: 1.0rem; letter-spacing: -0.01em; line-height: 1.3; }
+    .folder-count { font-size: 0.73rem; color: var(--muted); }
+
+    /* PROJECT GROUPS */
+    .projects-section { padding: 3.5rem 0; }
+    .project-group { margin-bottom: 3.5rem; scroll-margin-top: 80px; }
+    .group-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .group-title { font-family: var(--ff-serif); font-size: 1.3rem; letter-spacing: -0.02em; }
+    .group-tag { font-size: 0.68rem; padding: 3px 10px; border: 1px solid var(--border); border-radius: 100px; color: var(--muted); }
+
+    .project-row { display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem; padding: 1.2rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: inherit; transition: opacity 0.18s; }
+    .project-row:hover { opacity: 0.55; }
+    .project-row-main { flex: 1; }
+    .project-row-title { font-size: 0.95rem; font-weight: 500; margin-bottom: 3px; line-height: 1.4; }
+    .project-row-desc { font-size: 0.82rem; color: var(--muted); font-weight: 300; line-height: 1.6; }
+    .project-row-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; flex-shrink: 0; padding-top: 2px; }
+    .project-row-year { font-size: 0.72rem; color: var(--muted); }
+    .project-row-arrow { font-size: 0.82rem; color: var(--muted); }
+
+    /* IMAGE PLACEHOLDER */
+    .img-placeholder { width: 100%; aspect-ratio: 16/9; background: #ECEAE3; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-top: 1rem; border: 1px solid var(--border); }
+    .img-placeholder span { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.05em; }
+
+    /* WORK EXPERIENCE */
+    .exp-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); }
+    .exp-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 1.5rem; margin-bottom: 0.75rem; }
+    .exp-logo { width: 44px; height: 44px; background: #ECEAE3; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.6rem; color: var(--muted); text-align: center; line-height: 1.3; padding: 4px; }
+    .exp-main { flex: 1; }
+    .exp-role { font-size: 0.95rem; font-weight: 500; margin-bottom: 2px; line-height: 1.4; }
+    .exp-org { font-size: 0.85rem; color: var(--muted); margin-bottom: 2px; }
+    .exp-date { font-size: 0.75rem; color: var(--muted); }
+    .exp-body { font-size: 0.85rem; color: var(--muted); font-weight: 300; line-height: 1.7; }
+
+    /* EDUCATION */
+    .edu-item { padding: 1.5rem 0; border-bottom: 1px solid var(--border); display: flex; align-items: flex-start; gap: 1rem; }
+    .edu-logo { width: 44px; height: 44px; background: #ECEAE3; border-radius: 8px; border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 0.6rem; color: var(--muted); text-align: center; line-height: 1.3; padding: 4px; }
+    .edu-main { flex: 1; }
+    .edu-degree { font-size: 0.95rem; font-weight: 500; margin-bottom: 2px; line-height: 1.4; }
+    .edu-school { font-size: 0.85rem; color: var(--muted); margin-bottom: 2px; }
+    .edu-date { font-size: 0.75rem; color: var(--muted); }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--border); padding: 1.5rem 2rem; max-width: 720px; margin: 0 auto; display: flex; justify-content: space-between; font-size: 0.75rem; color: var(--muted); }
+
+    /* REVEAL */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.show { opacity: 1; transform: none; }
+
+    @media (max-width: 600px) {
+      .nav-links { gap: 1.2rem; }
+      .folders-grid { grid-template-columns: repeat(2, 1fr); }
+      .project-row { flex-direction: column; gap: 0.4rem; }
+      .exp-header { flex-direction: column; gap: 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Maxime M</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+
+  <!-- PAGE HEADER -->
+  <div class="page-header">
+    <h1 class="reveal">Projects &amp;<br><em>Experience.</em></h1>
+    <p class="reveal">Academic and research work spanning my undergraduate studies to the present — from course-based projects to semester-long research efforts and independent work in robotics, autonomous systems, and AI.</p>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- FOLDERS -->
+  <div class="folders-section">
+    <p class="section-label reveal">Browse by category</p>
+    <div class="folders-grid">
+
+      <a class="folder-card reveal" href="#columbia">
+        <div class="folder-icon">
+          <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 7C2 5.9 2.9 5 4 5H15L18.5 8.5H36C37.1 8.5 38 9.4 38 10.5V27C38 28.1 37.1 29 36 29H4C2.9 29 2 28.1 2 27V7Z" fill="#E8E6DF" stroke="#B8B5AC" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="folder-name">Columbia</div>
+        <div class="folder-count">4 projects</div>
+      </a>
+
+      <a class="folder-card reveal" href="#eth">
+        <div class="folder-icon">
+          <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 7C2 5.9 2.9 5 4 5H15L18.5 8.5H36C37.1 8.5 38 9.4 38 10.5V27C38 28.1 37.1 29 36 29H4C2.9 29 2 28.1 2 27V7Z" fill="#E8E6DF" stroke="#B8B5AC" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="folder-name">ETH Zurich</div>
+        <div class="folder-count">2 projects</div>
+      </a>
+
+      <a class="folder-card reveal" href="#research">
+        <div class="folder-icon">
+          <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 7C2 5.9 2.9 5 4 5H15L18.5 8.5H36C37.1 8.5 38 9.4 38 10.5V27C38 28.1 37.1 29 36 29H4C2.9 29 2 28.1 2 27V7Z" fill="#E8E6DF" stroke="#B8B5AC" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="folder-name">Research</div>
+        <div class="folder-count">1 project</div>
+      </a>
+
+      <a class="folder-card reveal" href="#work-exp">
+        <div class="folder-icon">
+          <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 7C2 5.9 2.9 5 4 5H15L18.5 8.5H36C37.1 8.5 38 9.4 38 10.5V27C38 28.1 37.1 29 36 29H4C2.9 29 2 28.1 2 27V7Z" fill="#E8E6DF" stroke="#B8B5AC" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="folder-name">Work Experience</div>
+        <div class="folder-count">5 roles</div>
+      </a>
+
+      <a class="folder-card reveal" href="#education">
+        <div class="folder-icon">
+          <svg viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2 7C2 5.9 2.9 5 4 5H15L18.5 8.5H36C37.1 8.5 38 9.4 38 10.5V27C38 28.1 37.1 29 36 29H4C2.9 29 2 28.1 2 27V7Z" fill="#E8E6DF" stroke="#B8B5AC" stroke-width="1"/>
+          </svg>
+        </div>
+        <div class="folder-name">Education</div>
+        <div class="folder-count">2 degrees</div>
+      </a>
+
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- ALL PROJECTS -->
+  <div class="projects-section">
+    <p class="section-label reveal">All projects</p>
+
+    <!-- COLUMBIA -->
+    <div class="project-group reveal" id="columbia">
+      <div class="group-header">
+        <div class="group-title">Columbia University</div>
+        <span class="group-tag">2025</span>
+      </div>
+
+      <div id="robotic-studio">
+        <a class="project-row" href="#">
+          <div class="project-row-main">
+            <div class="project-row-title">Robotic Studio</div>
+            <div class="project-row-desc">Hands-on robotics design and build project covering mechanical design, integration, and programming.</div>
+          </div>
+          <div class="project-row-meta">
+            <span class="project-row-year">2025</span>
+            <span class="project-row-arrow">↗</span>
+          </div>
+        </a>
+        <div class="img-placeholder"><span>Project image placeholder</span></div>
+      </div>
+
+      <a class="project-row" href="#">
+        <div class="project-row-main">
+          <div class="project-row-title">Introduction to Robotics</div>
+          <div class="project-row-desc">Foundational robotics coursework covering kinematics, dynamics, and control at Columbia University.</div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-year">2025</span>
+          <span class="project-row-arrow">↗</span>
+        </div>
+      </a>
+
+      <a class="project-row" href="#">
+        <div class="project-row-main">
+          <div class="project-row-title">Industrial Automation</div>
+          <div class="project-row-desc">Applied industrial automation systems, PLC programming, and manufacturing process control.</div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-year">2025</span>
+          <span class="project-row-arrow">↗</span>
+        </div>
+      </a>
+
+      <div id="rl">
+        <a class="project-row" href="#">
+          <div class="project-row-main">
+            <div class="project-row-title">Reinforcement Learning</div>
+            <div class="project-row-desc">Applied reinforcement learning to control problems, training agents for physical systems and evaluating performance in simulation.</div>
+          </div>
+          <div class="project-row-meta">
+            <span class="project-row-year">2025</span>
+            <span class="project-row-arrow">↗</span>
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <!-- ETH -->
+    <div class="project-group reveal" id="eth">
+      <div class="group-header">
+        <div class="group-title">ETH Zurich</div>
+        <span class="group-tag">2022 – 2024</span>
+      </div>
+
+      <a class="project-row" href="#" id="lane-changing">
+        <div class="project-row-main">
+          <div class="project-row-title">Review of Vehicle Lane Changing Models</div>
+          <div class="project-row-desc">A comprehensive literature review and analysis of vehicle lane-changing models for autonomous transportation systems.</div>
+        </div>
+        <div class="project-row-meta">
+          <span class="project-row-year">2024</span>
+          <span class="project-row-arrow">↗</span>
+        </div>
+      </a>
+      <div class="img-placeholder"><span>Document / report placeholder</span></div>
+
+      <div id="f1tenth">
+        <a class="project-row" href="#">
+          <div class="project-row-main">
+            <div class="project-row-title">Mechatronics Bonanza — F1TENTH</div>
+            <div class="project-row-desc">Autonomous racing platform in the context of F1TENTH at ETH Zurich, covering mechatronics, perception, and control systems.</div>
+          </div>
+          <div class="project-row-meta">
+            <span class="project-row-year">2024</span>
+            <span class="project-row-arrow">↗</span>
+          </div>
+        </a>
+        <div class="img-placeholder"><span>Project image placeholder</span></div>
+      </div>
+    </div>
+
+    <!-- RESEARCH -->
+    <div class="project-group reveal" id="research">
+      <div class="group-header">
+        <div class="group-title">Research</div>
+        <span class="group-tag">2024</span>
+      </div>
+
+      <div id="sbb">
+        <a class="project-row" href="#">
+          <div class="project-row-main">
+            <div class="project-row-title">SBB & HSLU: Autonomous Track-Maintenance Robot</div>
+            <div class="project-row-desc">Computer vision system for a railway maintenance robot — rail detection models for safety-critical environments, ROS 2 integration with Intel RealSense and UR3e arm, real-time visualization in RViz2, and Gazebo simulation environments.</div>
+          </div>
+          <div class="project-row-meta">
+            <span class="project-row-year">2024</span>
+            <span class="project-row-arrow">↗</span>
+          </div>
+        </a>
+        <div class="img-placeholder"><span>Project image / demo placeholder</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- WORK EXPERIENCE -->
+  <div style="padding: 3.5rem 0;" id="work-exp">
+    <p class="section-label reveal">Work Experience</p>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-logo">Columbia Autonomous Racing</div>
+        <div class="exp-main">
+          <div class="exp-role">Co-Founder — Columbia Engineering Autonomous Racing Team</div>
+          <div class="exp-org">Columbia University</div>
+          <div class="exp-date">2025 – Present</div>
+        </div>
+      </div>
+      <div class="exp-body">Co-founded a student-led platform for autonomous racing research. Recruited 30+ members, structured teams across Control, Integration, Path & State Planning, Perception, Simulation, and State Estimation. Organized lectures and workshops on autonomy stacks; currently preparing for first competition.</div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-logo">Swiss Armed Forces</div>
+        <div class="exp-main">
+          <div class="exp-role">Lead Squadron Soldier</div>
+          <div class="exp-org">Swiss Armed Forces</div>
+          <div class="exp-date">Jan 2025 – May 2025</div>
+        </div>
+      </div>
+      <div class="exp-body">Completed basic and specialized training as Lead Squadron Soldier in a battalion establishing mobile telecommunications centers for command units. Rapidly deployed and operated communication posts for real-time reporting between battalions. Also served as a certified driver operating vehicles up to 3.5 tons.</div>
+      <div class="img-placeholder" style="margin-top: 1rem;"><span>Photo placeholder</span></div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-logo">HSLU / SBB</div>
+        <div class="exp-main">
+          <div class="exp-role">Independent Robotics Researcher</div>
+          <div class="exp-org">HSLU AI & Robotics Lab / Swiss Federal Railways (SBB)</div>
+          <div class="exp-date">Sep 2024 – Jan 2025</div>
+        </div>
+      </div>
+      <div class="exp-body">Developed a computer vision system for an autonomous railway maintenance robot. Designed and trained rail detection models, integrated Intel RealSense cameras with a UR3e arm via ROS 2, and built Gazebo simulation environments. Presented research at Swiss Robotics Day.</div>
+      <div class="img-placeholder" style="margin-top: 1rem;"><span>Photo placeholder</span></div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-logo">IS Engineering AG</div>
+        <div class="exp-main">
+          <div class="exp-role">Part-Time Assistant Engineer</div>
+          <div class="exp-org">IS Engineering AG</div>
+          <div class="exp-date">Jun 2022 – Sep 2023</div>
+        </div>
+      </div>
+      <div class="exp-body">Improved usability and performance of patented glass handling equipment for clients across Europe and the Middle East. Contributed to the region's largest glass greenfield project, helped develop the Variable Center Distance (VCD) Tong Head, and supported automation and machining optimizations.</div>
+      <div class="img-placeholder" style="margin-top: 1rem;"><span>Photo placeholder</span></div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-logo">Bitcoin Suisse AG</div>
+        <div class="exp-main">
+          <div class="exp-role">Product Development Intern</div>
+          <div class="exp-org">Bitcoin Suisse AG</div>
+          <div class="exp-date">Jan 2022 – Feb 2022</div>
+        </div>
+      </div>
+      <div class="exp-body">Automated MIS reports and built investment allocation overviews for senior leadership. Researched new coin offerings, blockchain trends, and risks. Produced a Metaverse campaign presentation for the CEO and assisted with cold storage operations and ledger reconciliation.</div>
+      <div class="img-placeholder" style="margin-top: 1rem;"><span>Logo placeholder</span></div>
+    </div>
+
+    <div class="exp-item reveal">
+      <div class="exp-header">
+        <div class="exp-logo">Th. Zürrer AG</div>
+        <div class="exp-main">
+          <div class="exp-role">Polymechanic Intern</div>
+          <div class="exp-org">Theodor Zürrer AG</div>
+          <div class="exp-date">Jan 2021 – Feb 2021</div>
+        </div>
+      </div>
+      <div class="exp-body">Hands-on manufacturing experience at a high-precision gear manufacturer. Worked with CNC milling and conventional machines to produce shafts, worm wheels, and housings. Performed turning, drilling, grinding, honing, gearbox assembly, and quality control including vibration analysis and hardness testing.</div>
+    </div>
+  </div>
+
+  <hr class="section-sep">
+
+  <!-- EDUCATION -->
+  <div style="padding: 3.5rem 0 5rem;" id="education">
+    <p class="section-label reveal">Education</p>
+
+    <div class="edu-item reveal">
+      <div class="edu-logo">Columbia University</div>
+      <div class="edu-main">
+        <div class="edu-degree">MS in Mechanical Engineering — Robotics & Mechatronics</div>
+        <div class="edu-school">Columbia University, New York</div>
+        <div class="edu-date">Aug 2025 – Dec 2026</div>
+      </div>
+      <div class="img-placeholder" style="display:none;"></div>
+    </div>
+
+    <div class="edu-item reveal">
+      <div class="edu-logo">ETH Zurich</div>
+      <div class="edu-main">
+        <div class="edu-degree">BSc in Mechanical Engineering — Robotics & Control</div>
+        <div class="edu-school">ETH Zurich</div>
+        <div class="edu-date">Sep 2020 – Sep 2024</div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<footer>
+  <span>Maxime M</span>
+  <span>© 2025</span>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('show'), i * 55);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  els.forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
