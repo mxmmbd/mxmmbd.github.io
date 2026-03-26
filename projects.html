@@ -145,7 +145,24 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Media</div>
           <div class="media-grid">
-            <div class="media-soon media-full"><span>🎥 Walking demo videos — coming soon (uploading to YouTube)</span></div>
+            <div class="media-video media-full">
+              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                src="https://www.youtube.com/embed/ApJUsBR98f8"
+                allowfullscreen></iframe>
+              <div class="vid-cap">Crawler robot — Journey video</div>
+            </div>
+            <div class="media-video media-full">
+              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                src="https://drive.google.com/file/d/1xo3U2GYo4qHKe3vlYxmmVOvX7Axz8F3b/preview"
+                allowfullscreen></iframe>
+              <div class="vid-cap">Klann-Mechanism demonstration</div>
+            </div>
+            <div class="media-video media-full">
+              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                src="https://drive.google.com/file/d/1sEsEgpa3-0oahTiQDYNOE4WPIr7SGA9p/preview"
+                allowfullscreen></iframe>
+              <div class="vid-cap">Klann-Mechanism walking demonstration</div>
+            </div>
             <div class="media-img" onclick="openLb('assets/projects/crawler/render.png','Fusion 360 render of the crawler')">
               <img src="assets/projects/crawler/render.png" alt="Fusion 360 render">
               <div class="img-cap">Fusion 360 render</div>
@@ -292,8 +309,12 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
           <div class="d-label">Media</div>
           <div class="media-grid">
             <div class="media-pdf media-full">
-              <iframe src="assets/projects/rl/rlpaper.pdf" title="RL inventory paper"></iframe>
-              <div class="media-pdf-bar"><span>Paper — RL framework for perishable inventory management</span><a href="assets/projects/rl/rlpaper.pdf" target="_blank" download>↓ Download</a></div>
+              <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                src="https://drive.google.com/file/d/1l4WHNMtZZ-Pd87DTE0QIEC9sNo_5E6sc/preview"></iframe>
+              <div class="media-pdf-bar">
+                <span>Paper — RL framework for perishable inventory management</span>
+                <a href="https://drive.google.com/file/d/1l4WHNMtZZ-Pd87DTE0QIEC9sNo_5E6sc/view" target="_blank">↗ Open in Drive</a>
+              </div>
             </div>
           </div>
         </div>
@@ -304,7 +325,7 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
     <div class="card reveal">
       <div class="card-header" onclick="toggle(this)">
         <div class="card-main">
-          <div class="card-meta"><span class="tag inst">Columbia University</span><span class="tag">Industrial Automation</span><span class="tag">2026</span></div>
+          <div class="card-meta"><span class="tag inst">Columbia University</span><span class="tag">Industrial Automation</span><span class="tag">Ongoing</span></div>
           <div class="card-title">Recycling Conveyor Sorting System</div>
           <div class="card-preview">Vision-based recycling sorter integrating a 3D-printed conveyor, ultrasonic sensing, overhead camera, Raspberry Pi inference, and a rail-mounted bin system for three waste categories.</div>
         </div>
