@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Projects — Maxime M</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@300;400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#F5F4F0;--surface:#FFFFFF;--text:#111110;--muted:#6B6A65;--border:rgba(17,17,16,0.1);--border-h:rgba(17,17,16,0.32);--ff-serif:'Instrument Serif',Georgia,serif;--ff-sans:'Instrument Sans',system-ui,sans-serif;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-sans);background:var(--bg);color:var(--text);min-height:100vh;}
+.page{max-width:740px;margin:0 auto;padding:0 2rem;}
+nav{position:sticky;top:0;z-index:50;background:rgba(245,244,240,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-name{font-family:var(--ff-serif);font-size:1.05rem;color:var(--text);text-decoration:none;}
+.nav-links{display:flex;gap:1.6rem;list-style:none;}
+.nav-links a{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.page-header{padding:4rem 0 2.5rem;}
+.page-header h1{font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3rem);letter-spacing:-0.025em;line-height:1.1;margin-bottom:0.75rem;}
+.page-header h1 em{font-style:italic;color:var(--muted);}
+.page-header p{font-size:0.92rem;color:var(--muted);font-weight:300;line-height:1.75;max-width:58ch;}
+.sep{border:none;border-top:1px solid var(--border);}
+.sec-label{font-size:0.7rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.75rem;}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1rem;transition:border-color 0.18s;}
+.card:hover{border-color:var(--border-h);}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;padding:1.2rem 1.4rem;cursor:pointer;}
+.card-main{flex:1;}
+.card-meta{display:flex;gap:0.45rem;flex-wrap:wrap;margin-bottom:0.5rem;align-items:center;}
+.tag{font-size:0.63rem;padding:2px 9px;border:1px solid var(--border);border-radius:100px;color:var(--muted);white-space:nowrap;}
+.tag.inst{background:#ECEAE3;border-color:transparent;color:#555;}
+.card-title{font-family:var(--ff-serif);font-size:1.08rem;letter-spacing:-0.015em;line-height:1.3;margin-bottom:0.3rem;}
+.card-preview{font-size:0.82rem;color:var(--muted);font-weight:300;line-height:1.6;}
+.card-toggle{flex-shrink:0;font-size:1.1rem;color:var(--muted);transition:transform 0.22s;user-select:none;padding-top:2px;line-height:1;}
+.card.open .card-toggle{transform:rotate(45deg);}
+.card-detail{display:none;padding:0 1.4rem 1.5rem;border-top:1px solid var(--border);}
+.card.open .card-detail{display:block;}
+.d-sec{margin-top:1.2rem;}
+.d-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.55rem;}
+.d-prose{font-size:0.86rem;color:var(--muted);font-weight:300;line-height:1.8;}
+.d-prose p+p{margin-top:0.7rem;}
+.d-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.35rem;}
+.d-bullets li{font-size:0.84rem;color:var(--muted);font-weight:300;line-height:1.6;padding-left:1rem;position:relative;}
+.d-bullets li::before{content:'—';position:absolute;left:0;color:#aaa;}
+.tech-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.4rem;}
+.tp{padding:4px 12px;border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--text);background:var(--bg);}
+.media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:0.7rem;margin-top:0.6rem;}
+.media-item{background:#ECEAE3;border-radius:8px;border:1px solid var(--border);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0.75rem;text-align:center;overflow:hidden;}
+.media-item.wide{grid-column:span 2;aspect-ratio:16/9;}
+.media-item.doc{aspect-ratio:3/2;}
+.media-item img{width:100%;height:100%;object-fit:cover;border-radius:6px;}
+.media-item iframe{width:100%;height:100%;border-radius:6px;border:none;}
+.media-item a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;text-decoration:none;}
+.media-icon{font-size:1.1rem;opacity:0.35;}
+.media-cap{font-size:0.68rem;color:var(--muted);line-height:1.45;}
+footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;margin:0 auto;display:flex;justify-content:space-between;font-size:0.73rem;color:var(--muted);}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.show{opacity:1;transform:none;}
+@media(max-width:620px){.nav-links{gap:1rem;}.nav-links a{font-size:0.74rem;}.media-grid{grid-template-columns:1fr;}.media-item.wide{grid-column:span 1;}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Maxime M</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html" class="active">Projects</a></li>
+      <li><a href="research.html">Research</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="page">
+  <div class="page-header">
+    <h1 class="reveal">Projects.</h1>
+    <p class="reveal">Built systems and implementation-heavy work from Columbia University — spanning robotics, embedded systems, industrial automation, and applied machine learning.</p>
+  </div>
+  <hr class="sep">
+  <div style="padding:2.5rem 0 4rem;">
+
+    <!-- CRAWLER -->
+    <div class="card reveal" id="crawler">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta">
+            <span class="tag inst">Columbia University</span>
+            <span class="tag">Robotic Studio · Creative Machines Lab</span>
+            <span class="tag">2025</span>
+          </div>
+          <div class="card-title">Crawler Robot</div>
+          <div class="card-preview">8-legged Klann-linkage crawler designed, fabricated, and programmed from scratch. Implements crab walking, IMU-driven body reorientation, and RL-trained locomotion transferred to hardware.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Developed in Robotic Studio at Columbia University (Creative Machines Lab, Prof. Hod Lipson). Working from a servo kit and open design brief, the project resulted in a spider-inspired 8-legged crawling robot using a Klann linkage mechanism. Two actuated arms drive the full 8-legged structure. The robot was designed entirely in Fusion 360 and fabricated on a Bambu Lab system with a 0.4 mm nozzle.</p>
+            <p>Two complete redesign cycles were required. The first addressed material distribution and joint tolerances; the second resolved mechanical binding caused by unavailability of ideal fastener sizes. Final joint tolerances ranged from 0.4–0.8 mm, driven by 3D printing constraints and bolt sizing. Electronics soldering and hardware integration were handled throughout.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>Klann linkage-based 8-legged mechanism driven by two servo arms; designed and iterated in Fusion 360</li>
+            <li>Two redesign cycles: first reduced material use and improved tolerances; second resolved mechanical binding from non-ideal fastener sizing</li>
+            <li>Joint tolerances 0.4–0.8 mm constrained by 3D printing and available hardware</li>
+            <li>Platform: 6 servo actuators, Raspberry Pi, IMU; electronics soldered and integrated on-board</li>
+            <li>Closed-loop locomotion: crab walking gait and body reorientation using IMU feedback</li>
+            <li>Gait optimization via random search, hill climber, and parallel mutation hill climber</li>
+            <li>MuJoCo simulation used for sin-based crab-walking gait validation before hardware transfer</li>
+            <li>PPO policy trained using Gymnasium and stable-baselines3; servo commands mapped from policy outputs for sim-to-real transfer</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills">
+            <span class="tp">Fusion 360</span><span class="tp">Raspberry Pi</span><span class="tp">IMU</span><span class="tp">MuJoCo</span><span class="tp">Gymnasium</span><span class="tp">stable-baselines3</span><span class="tp">PPO</span><span class="tp">Python</span><span class="tp">PyTorch</span><span class="tp">3D Printing</span>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <!-- TO ADD VIDEO: replace this block with <div class="media-item wide"><iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe></div> -->
+            <div class="media-item wide"><div class="media-icon">🎥</div><div class="media-cap">Development process video<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/crawler/process.mp4</em></div></div>
+            <div class="media-item"><div class="media-icon">🎥</div><div class="media-cap">Walking demo, angle 1</div></div>
+            <div class="media-item"><div class="media-icon">🎥</div><div class="media-cap">Walking demo, angle 2</div></div>
+            <!-- TO ADD IMAGE: <div class="media-item"><img src="assets/projects/crawler/render.png" alt="Fusion 360 render"></div> -->
+            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">Fusion 360 render<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/crawler/render.png</em></div></div>
+            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">Final built robot<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/crawler/final.jpg</em></div></div>
+            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">Bird's-eye CAD view<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/crawler/cad-top.png</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FRANKA -->
+    <div class="card reveal">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta">
+            <span class="tag inst">Columbia University</span>
+            <span class="tag">Introduction to Robotics · RoAR Lab</span>
+            <span class="tag">2025</span>
+          </div>
+          <div class="card-title">Safe Path Generation — Franka Panda Arm</div>
+          <div class="card-preview">Real-time collision avoidance for a 7-DOF Franka Emika Panda in cluttered environments. Compared an IK via-point planner against a Jacobian-based velocity controller. Jacobian approach achieved higher success rates and smoother trajectories.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Course project for Introduction to Robotics at Columbia University (RoAR Lab, Prof. Sunil K. Agrawal). The goal was to enable a 7-DOF Franka Emika Panda arm to navigate safely in constrained, cluttered workspaces — motivated by laboratory chemical-handling scenarios where precise obstacle avoidance is safety-critical.</p>
+            <p>Two control architectures were implemented and compared. The first used an inverse kinematics solver with a geometric via-point to produce a segmented trajectory sidestepping obstacles. The second implemented a Jacobian-based velocity controller generating real-time attractive and tangential avoidance velocities across all monitored links. In simulations with stochastically placed obstacles using the Genesis physics engine, the Jacobian approach consistently achieved higher success rates, smoother trajectories, and less sensitivity to obstacle placement — at low computational cost.</p>
+            <p>A supplementary PPO framework using Gymnasium explored autonomous via-point learning. Full physics simulation made training slow; the agent did not converge within available compute, but the framework showed meaningful potential for adaptive motion generation.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>Robot modeled using Modified Denavit-Hartenberg (MDH) convention; kinematic chain mapped via product of link transformations</li>
+            <li>IK approach: via-point offset tangentially from obstacle midpoint; two-phase joint-space linear interpolation (qinit → qvia → qgoal)</li>
+            <li>Jacobian controller: goal attraction via pseudoinverse end-effector Jacobian; per-link tangential avoidance velocities summed; gains tuned (katt = 1.5, kavoid = 0.4)</li>
+            <li>Simulation in Genesis physics engine with stochastic red-cube obstacles along the direct end-effector-to-goal path</li>
+            <li>IK approach sensitive to obstacle placement; no collision guarantee between keyframes — Jacobian consistently outperformed</li>
+            <li>PPO RL framework explored for via-point learning (FrankaReachWithViaEnv); computational cost prevented convergence within available resources</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills">
+            <span class="tp">Franka Emika Panda</span><span class="tp">IK / MDH</span><span class="tp">Jacobian Control</span><span class="tp">Genesis Engine</span><span class="tp">PPO</span><span class="tp">Gymnasium</span><span class="tp">Python</span>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <!-- TO ADD PDF: <div class="media-item wide doc"><a href="assets/projects/franka/paper.pdf" target="_blank"><div class="media-icon">📄</div><div class="media-cap">Paper</div></a></div> -->
+            <div class="media-item wide doc"><div class="media-icon">📄</div><div class="media-cap">Paper — safe path generation for 7-DOF arm<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/franka/paper.pdf</em></div></div>
+            <div class="media-item wide"><div class="media-icon">🎥</div><div class="media-cap">Video — IK planner vs. Jacobian controller<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/franka/comparison.mp4</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONVEYOR -->
+    <div class="card reveal">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta">
+            <span class="tag inst">Columbia University</span>
+            <span class="tag">Industrial Automation</span>
+            <span class="tag">2026</span>
+          </div>
+          <div class="card-title">Recycling Conveyor Sorting System</div>
+          <div class="card-preview">Vision-based recycling sorter integrating a 3D-printed conveyor, ultrasonic sensing, overhead camera, Raspberry Pi inference, and a rail-mounted bin system for three waste categories.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Final project for Industrial Automation at Columbia University (Prof. Ali Dadgar). The system integrated a 3D-printed conveyor belt driven by DC motors with a multi-stage sensing and actuation pipeline. An ultrasonic sensor detected oversized objects upstream and triggered servo-driven ejection before classification. An overhead camera fed a trained computer vision model running on a Raspberry Pi to classify items into recyclable, compost, or non-recyclable categories in real time. A rail-mounted bin system aligned outputs accordingly. The project required end-to-end integration of mechanical design, sensing, actuation, inference, synchronization, and validation.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>3D-printed conveyor belt driven by DC motors; CAD-designed for repeatable object transport</li>
+            <li>Ultrasonic sensor for oversized-object detection with servo-actuated ejection gate</li>
+            <li>Overhead camera feeding trained vision model on Raspberry Pi for real-time three-class classification</li>
+            <li>Rail-mounted bin system for sorted output: recyclable / compost / non-recyclable</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills">
+            <span class="tp">Raspberry Pi</span><span class="tp">Computer Vision</span><span class="tp">DC Motors</span><span class="tp">Ultrasonic Sensing</span><span class="tp">Servo Actuation</span><span class="tp">3D Printing</span><span class="tp">CAD</span>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <div class="media-item wide"><div class="media-icon">🖼</div><div class="media-cap">Open-source robotics framework kit<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/conveyor/kit.jpg</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RL INVENTORY -->
+    <div class="card reveal">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta">
+            <span class="tag inst">Columbia University</span>
+            <span class="tag">Reinforcement Learning · FoodWeb.ai</span>
+            <span class="tag">2025</span>
+          </div>
+          <div class="card-title">RL for Restaurant Inventory Management</div>
+          <div class="card-preview">PPO + DeepSets policy for perishable inventory management across multiple restaurants. 77% spoilage reduction versus heuristic baselines in simulation.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Final project for Reinforcement Learning at Columbia University (Prof. Shipra Agrawal), in collaboration with FoodWeb.ai. Developed a reinforcement learning framework for perishable inventory management across multiple restaurant locations. A PPO agent with a DeepSets architecture optimized ordering decisions across variable ingredient sets under budget and capacity constraints. The policy integrated LSTM-based demand forecasts and LogNormal action distributions. In simulation, the learned policy achieved higher profit than heuristic baselines while reducing spoilage by 77%.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>PPO + DeepSets for permutation-invariant multi-ingredient, multi-restaurant state spaces</li>
+            <li>LSTM demand forecasts integrated into policy input; LogNormal action distributions for continuous ordering</li>
+            <li>Budget and capacity constraints enforced within the RL environment</li>
+            <li>77% spoilage reduction and higher profit vs. heuristic baselines in simulation</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills">
+            <span class="tp">PPO</span><span class="tp">DeepSets</span><span class="tp">LSTM</span><span class="tp">PyTorch</span><span class="tp">Gymnasium</span><span class="tp">Python</span>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <div class="media-item wide doc"><div class="media-icon">📄</div><div class="media-cap">Paper — RL framework for perishable inventory management<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/rl-inventory/paper.pdf</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SPACE ROVER -->
+    <div class="card reveal" id="rover">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta">
+            <span class="tag inst">Columbia University</span>
+            <span class="tag">Ongoing</span>
+            <span class="tag">2025–26</span>
+          </div>
+          <div class="card-title">Space Rover Platform</div>
+          <div class="card-preview">Ground-up rover integrating Ackermann steering, DC motor drives, and 50 Hz closed-loop control on RP2040. Solved 3–5 A motor current spikes through capacitive decoupling and isolated regulated power rails.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Ongoing rover project at Columbia University, building a complete mobile platform from scratch integrating mechanical, electrical, and control subsystems. The drivetrain uses Ackermann steering with DC motors and encoders, controlled at 50 Hz via an RP2040 microcontroller.</p>
+            <p>A key challenge was power instability: DC motors generated 3–5 A current spikes causing voltage drops and controller resets. Resolved using 2200 µF electrolytic capacitors across the motor driver VIN/GND, separate regulated rails (11.1 V battery, 5 V for Raspberry Pi, 6 V for servos), a common ground architecture, and correctly sized wire gauges with 5 A regulators to prevent brownouts.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>Ackermann steering with DC motors, encoders, and servo-driven steering mechanism</li>
+            <li>50 Hz closed-loop motor control on RP2040</li>
+            <li>3–5 A motor spikes solved: 2200 µF decoupling caps across motor driver VIN/GND</li>
+            <li>Isolated power rails: 11.1 V battery → 5 V (Pi) / 6 V (servos); common ground; 5 A regulators</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills">
+            <span class="tp">RP2040</span><span class="tp">Raspberry Pi</span><span class="tp">DC Motors</span><span class="tp">Encoders</span><span class="tp">Ackermann Steering</span><span class="tp">Power Electronics</span><span class="tp">C++</span>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">Rover assembly<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/rover/assembly.jpg</em></div></div>
+            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">Electronics / power system<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/rover/electronics.jpg</em></div></div>
+            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">CAD / drivetrain<br><em style="font-size:0.6rem;opacity:0.6;">assets/projects/rover/cad.png</em></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer><span>Maxime M</span><span>© 2025 · Columbia University</span></footer>
+<script>
+function toggle(h){h.parentElement.classList.toggle('open');}
+const els=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('show'),i*50);obs.unobserve(el.target);}});},{threshold:0.06});
+els.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
