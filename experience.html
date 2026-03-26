@@ -110,136 +110,144 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
 
     <!-- SBB -->
     <div class="card reveal" id="sbb">
-      <div class="card-header" onclick="toggle(this)">
-        <div class="card-main">
-          <div class="card-meta"><span class="tag inst">HSLU · Swiss Federal Railways (SBB)</span><span class="tag">Work Experience</span><span class="tag">AI &amp; Robotics Researcher</span><span class="tag">Sep – Dec 2024</span></div>
-          <div class="card-title">HSLU / SBB — AI &amp; Robotics Researcher</div>
-          <div class="card-preview">Real-time rail detection for an autonomous maintenance robot. 97.8% accuracy at 30 FPS. Sensor hardware iterated across three design cycles. Presented at Swiss Robotics Day 2024.</div>
-        </div>
-        <div class="card-toggle">+</div>
-      </div>
-      <div class="card-detail">
-        <div class="d-sec">
-          <div class="d-label">Overview</div>
-          <div class="d-prose">
-            <p>Research at the AI & Robotics Lab, HSLU, in collaboration with Swiss Federal Railways (SBB). Supervised by Prof. Björn Jensen. Built a real-time rail detection system for an autonomous rail-maintenance robot performing vegetation management without entering active tracks.</p>
-            <p>ROS 2-based pipeline: 97% validation accuracy / 80% external accuracy in one framing, 97.8% at 30 FPS in deployment. Presented at Swiss Robotics Day 2024, Basel. Sensor mounting hardware iterated across three cycles — PLA → geometry redesign + PETG + damping isolation. UR3e mounting assembly with Raspberry Pi and RealSense D435 designed and prototyped, solving cable routing and alignment across full arm range of motion.</p>
+        <div class="card-header" onclick="toggle(this)">
+          <div class="card-main">
+            <div class="card-meta"><span class="tag inst">HSLU · Swiss Federal Railways (SBB)</span><span class="tag">Work Experience</span><span class="tag">AI &amp; Robotics Researcher</span><span class="tag">Sep – Dec 2024</span></div>
+            <div class="card-title">HSLU / SBB — AI &amp; Robotics Researcher</div>
+            <div class="card-preview">Real-time rail detection for an autonomous maintenance robot. 97.8% accuracy at 30 FPS. Sensor hardware iterated across three design cycles. Presented at Swiss Robotics Day 2024.</div>
           </div>
+          <div class="card-toggle">+</div>
         </div>
-        <div class="d-sec">
-          <div class="d-label">Technical Highlights</div>
-          <ul class="d-bullets">
-            <li>97% validation / 80% external accuracy; 97.8% at 30 FPS in deployment</li>
-            <li>ROS 2 pipeline with real-time RViz2 visualization</li>
-            <li>Sensor mounts: 3 iterations — PLA → PETG + geometry + damping</li>
-            <li>UR3e assembly: Raspberry Pi + RealSense D435; cable routing and alignment solved</li>
-            <li>Presented at Swiss Robotics Day 2024, Basel</li>
-            <li>CAD in Fusion 360</li>
-          </ul>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Tools &amp; Technologies</div>
-          <div class="tech-pills"><span class="tp">ROS 2</span><span class="tp">Intel RealSense D435</span><span class="tp">UR3e</span><span class="tp">LiDAR</span><span class="tp">RViz2</span><span class="tp">Gazebo</span><span class="tp">Computer Vision</span><span class="tp">Fusion 360</span><span class="tp">PETG / PLA</span><span class="tp">Raspberry Pi</span></div>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Media</div>
-          <div class="media-grid">
-            <div class="media-pdf media-full">
-              <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
-                src="https://drive.google.com/file/d/1vkysMYeiB8d33t4Ifcc6u-Rh3P-hQrlm/preview"></iframe>
-              <div class="media-pdf-bar">
-                <span>Packbot overview poster</span>
-                <a href="https://drive.google.com/file/d/1vkysMYeiB8d33t4Ifcc6u-Rh3P-hQrlm/view" target="_blank">↗ Open in Drive</a>
-              </div>
-            </div>
-            <div class="media-pdf media-full">
-              <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
-                src="https://drive.google.com/file/d/1PeAoaaglXcP14YkTQy1DuoXB9goLG5D4/preview"></iframe>
-              <div class="media-pdf-bar">
-                <span>Classification model slides</span>
-                <a href="https://drive.google.com/file/d/1PeAoaaglXcP14YkTQy1DuoXB9goLG5D4/view" target="_blank">↗ Open in Drive</a>
-              </div>
-            </div>
-            <div class="media-video media-full">
-              <video controls>
-                <source src="assets/work/sbb-packbot/Packbot from 05.12.2024 09_54_40.mp4" type="video/mp4">
-              </video>
-              <div class="vid-cap">Packbot real-time rail detection demo — December 2024</div>
-            </div>
-            <div class="media-img" onclick="openLb('assets/work/sbb-packbot/IMG_8159.png','Field data collection — rail detection dataset')">
-              <img src="assets/work/sbb-packbot/IMG_8159.png" alt="Field data collection">
-              <div class="img-cap">Field data collection — rail detection dataset</div>
-            </div>
-            <div class="media-img" onclick="openLb('assets/work/sbb-packbot/IMG_8163.png','Real-time detection system running on the Packbot')">
-              <img src="assets/work/sbb-packbot/IMG_8163.png" alt="Real-time implementation">
-              <div class="img-cap">Real-time detection on the Packbot</div>
+        <div class="card-detail">
+          <div class="d-sec">
+            <div class="d-label">Overview</div>
+            <div class="d-prose">
+              <p>Research at the AI & Robotics Lab, HSLU, in collaboration with Swiss Federal Railways (SBB). Supervised by Prof. Björn Jensen. Built a real-time rail detection system for an autonomous rail-maintenance robot performing vegetation management without entering active tracks.</p>
+              <p>ROS 2-based pipeline: 97% validation accuracy / 80% external accuracy in one framing, 97.8% at 30 FPS in deployment. Presented at Swiss Robotics Day 2024, Basel. Sensor mounting hardware iterated across three cycles — PLA → geometry redesign + PETG + damping isolation. UR3e mounting assembly with Raspberry Pi and RealSense D435 designed and prototyped, solving cable routing and alignment across full arm range of motion.</p>
             </div>
           </div>
+          <div class="d-sec">
+            <div class="d-label">Technical Highlights</div>
+            <ul class="d-bullets">
+              <li>97% validation / 80% external accuracy; 97.8% at 30 FPS in deployment</li>
+              <li>ROS 2 pipeline with real-time RViz2 visualization</li>
+              <li>Sensor mounts: 3 iterations — PLA → PETG + geometry + damping</li>
+              <li>UR3e assembly: Raspberry Pi + RealSense D435; cable routing and alignment solved</li>
+              <li>Presented at Swiss Robotics Day 2024, Basel</li>
+              <li>CAD in Fusion 360</li>
+            </ul>
+          </div>
+          <div class="d-sec">
+            <div class="d-label">Tools &amp; Technologies</div>
+            <div class="tech-pills"><span class="tp">ROS 2</span><span class="tp">Intel RealSense D435</span><span class="tp">UR3e</span><span class="tp">LiDAR</span><span class="tp">RViz2</span><span class="tp">Gazebo</span><span class="tp">Computer Vision</span><span class="tp">Fusion 360</span><span class="tp">PETG / PLA</span><span class="tp">Raspberry Pi</span></div>
+          </div>
+          <div class="d-sec">
+            <div class="d-label">Media</div>
+            <div class="media-grid">
+              <div class="media-pdf media-full">
+                <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                  src="https://drive.google.com/file/d/1vkysMYeiB8d33t4Ifcc6u-Rh3P-hQrlm/preview"></iframe>
+                <div class="media-pdf-bar">
+                  <span>Packbot overview poster</span>
+                  <a href="https://drive.google.com/file/d/1vkysMYeiB8d33t4Ifcc6u-Rh3P-hQrlm/view" target="_blank">↗ Open in Drive</a>
+                </div>
+              </div>
+              <div class="media-pdf media-full">
+                <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                  src="https://drive.google.com/file/d/1PeAoaaglXcP14YkTQy1DuoXB9goLG5D4/preview"></iframe>
+                <div class="media-pdf-bar">
+                  <span>Classification model slides</span>
+                  <a href="https://drive.google.com/file/d/1PeAoaaglXcP14YkTQy1DuoXB9goLG5D4/view" target="_blank">↗ Open in Drive</a>
+                </div>
+              </div>
+              <div class="media-video media-full">
+                <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                  src="https://drive.google.com/file/d/1eFWxzsxdvijDPzeVw7k6w_quznNvLj9w/preview" allowfullscreen></iframe>
+                <div class="vid-cap">Packbot real-time rail detection demo — December 2024</div>
+              </div>
+              <div class="media-img" onclick="openLb('https://drive.google.com/thumbnail?id=16WQJXv-u2qC305aWJyFkYelqkFmEa6ES&sz=w1200','Field data collection — rail detection dataset')">
+                <img src="https://drive.google.com/thumbnail?id=16WQJXv-u2qC305aWJyFkYelqkFmEa6ES&sz=w800" alt="Field data collection">
+                <div class="img-cap">Field data collection — rail detection dataset</div>
+              </div>
+              <div class="media-img" onclick="openLb('https://drive.google.com/thumbnail?id=1CSW1ThECIKyh1i6ObjKlTvEXPdztpXat&sz=w1200','Real-time detection system running on the Packbot')">
+                <img src="https://drive.google.com/thumbnail?id=1CSW1ThECIKyh1i6ObjKlTvEXPdztpXat&sz=w800" alt="Real-time implementation">
+                <div class="img-cap">Real-time detection on the Packbot</div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-
     <!-- IS ENGINEERING -->
     <div class="card reveal">
-      <div class="card-header" onclick="toggle(this)">
-        <div class="card-main">
-          <div class="card-meta"><span class="tag inst">IS Engineering AG</span><span class="tag">Assistant Mechanical Engineer</span><span class="tag">Jun 2022 – Sep 2023</span></div>
-          <div class="card-title">IS Engineering AG — Assistant Mechanical Engineer</div>
-          <div class="card-preview">CAD modeling, manufacturing drawings, and tolerance analysis for industrial glass handling systems. VCD tong head — 12% material reduction preserving load-bearing geometry.</div>
-        </div>
-        <div class="card-toggle">+</div>
-      </div>
-      <div class="card-detail">
-        <div class="d-sec">
-          <div class="d-label">Overview</div>
-          <div class="d-prose">
-            <p>Part-time role at IS Engineering AG, a manufacturer of specialized glass handling equipment. Produced CAD models and manufacturing drawings using Creo, applied tolerance analysis and design-for-assembly principles. Contributed to the Variable Center Distance (VCD) tong head — reduced material usage by ~12% while maintaining load-bearing geometry and dimensional precision.</p>
+          <div class="card-header" onclick="toggle(this)">
+            <div class="card-main">
+              <div class="card-meta"><span class="tag inst">IS Engineering AG</span><span class="tag">Assistant Mechanical Engineer</span><span class="tag">Jun 2022 – Sep 2023</span></div>
+              <div class="card-title">IS Engineering AG — Assistant Mechanical Engineer</div>
+              <div class="card-preview">CAD modeling, manufacturing drawings, and tolerance analysis for industrial glass handling systems. VCD tong head — 12% material reduction preserving load-bearing geometry.</div>
+            </div>
+            <div class="card-toggle">+</div>
+          </div>
+          <div class="card-detail">
+            <div class="d-sec">
+              <div class="d-label">Overview</div>
+              <div class="d-prose">
+                <p>Part-time role at IS Engineering AG, a manufacturer of specialized glass handling equipment. Produced CAD models and manufacturing drawings using Creo, applied tolerance analysis and design-for-assembly principles. Contributed to the Variable Center Distance (VCD) tong head — reduced material usage by ~12% while maintaining load-bearing geometry and dimensional precision.</p>
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="d-label">Technical Highlights</div>
+              <ul class="d-bullets">
+                <li>CAD modeling and manufacturing drawings in Creo / Pro Engineer</li>
+                <li>Tolerance analysis and DFA across components</li>
+                <li>VCD tong head: ~12% material reduction preserving load-bearing geometry</li>
+                <li>Manufacturing workflow and assembly efficiency evaluation</li>
+              </ul>
+            </div>
+            <div class="d-sec">
+              <div class="d-label">Tools &amp; Technologies</div>
+              <div class="tech-pills"><span class="tp">Creo / Pro Engineer</span><span class="tp">CAD</span><span class="tp">Manufacturing Drawings</span><span class="tp">Tolerance Analysis</span><span class="tp">DFA</span></div>
+            </div>
+            <div class="d-sec">
+              <div class="d-label">Media</div>
+              <div class="media-grid">
+                <div class="media-pdf media-full">
+                  <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                    src="https://drive.google.com/file/d/17jzW4khm7SUyGAtazvebB6hx8JU4lTcM/preview"></iframe>
+                  <div class="media-pdf-bar">
+                    <span>VCD Features &amp; Benefits</span>
+                    <a href="https://drive.google.com/file/d/17jzW4khm7SUyGAtazvebB6hx8JU4lTcM/view" target="_blank">↗ Open in Drive</a>
+                  </div>
+                </div>
+                <div class="media-pdf media-full">
+                  <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                    src="https://drive.google.com/file/d/1OwG4qH1d8--VlE9TB4xbjB1edLAPgJ6_/preview"></iframe>
+                  <div class="media-pdf-bar">
+                    <span>VCD Product Overview</span>
+                    <a href="https://drive.google.com/file/d/1OwG4qH1d8--VlE9TB4xbjB1edLAPgJ6_/view" target="_blank">↗ Open in Drive</a>
+                  </div>
+                </div>
+                <div class="media-pdf media-full">
+                  <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                    src="https://drive.google.com/file/d/1DoyRk8x7uDq5SrNmbZS5WKgOq833T02p/preview"></iframe>
+                  <div class="media-pdf-bar">
+                    <span>Best Features Take-Out</span>
+                    <a href="https://drive.google.com/file/d/1DoyRk8x7uDq5SrNmbZS5WKgOq833T02p/view" target="_blank">↗ Open in Drive</a>
+                  </div>
+                </div>
+                <div class="media-video media-full">
+                  <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                    src="https://drive.google.com/file/d/1k4kTtMmmODoor73K7RTPyiAl_QpN0cVE/preview" allowfullscreen></iframe>
+                  <div class="vid-cap">VCD TG5 — product demonstration</div>
+                </div>
+                <div class="media-video media-full">
+                  <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                    src="https://drive.google.com/file/d/1zYozcLwVB68ZiSbQgIHpea6-52X34DxS/preview" allowfullscreen></iframe>
+                  <div class="vid-cap">VCD TG425 — Gerresheimer Lohr installation, April 2024</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="d-sec">
-          <div class="d-label">Technical Highlights</div>
-          <ul class="d-bullets">
-            <li>CAD modeling and manufacturing drawings in Creo / Pro Engineer</li>
-            <li>Tolerance analysis and DFA across components</li>
-            <li>VCD tong head: ~12% material reduction preserving load-bearing geometry</li>
-            <li>Manufacturing workflow and assembly efficiency evaluation</li>
-          </ul>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Tools &amp; Technologies</div>
-          <div class="tech-pills"><span class="tp">Creo / Pro Engineer</span><span class="tp">CAD</span><span class="tp">Manufacturing Drawings</span><span class="tp">Tolerance Analysis</span><span class="tp">DFA</span></div>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Media</div>
-          <div class="media-grid">
-            <div class="media-pdf media-full">
-              <iframe src="assets/work/ise/509N-EN_VCD Features-Benefits.docx.pdf" title="VCD Features and Benefits"></iframe>
-              <div class="media-pdf-bar"><span>VCD Features &amp; Benefits</span><a href="assets/work/ise/509N-EN_VCD Features-Benefits.docx.pdf" target="_blank" download>↓ Download</a></div>
-            </div>
-            <div class="media-pdf media-full">
-              <iframe src="assets/work/ise/ISE-111B-EN VCD.pptx.pdf" title="VCD product overview"></iframe>
-              <div class="media-pdf-bar"><span>VCD Product Overview</span><a href="assets/work/ise/ISE-111B-EN VCD.pptx.pdf" target="_blank" download>↓ Download</a></div>
-            </div>
-            <div class="media-pdf media-full">
-              <iframe src="assets/work/ise/Best Features Take-Out.pptx.pdf" title="Best features take-out"></iframe>
-              <div class="media-pdf-bar"><span>Best Features Take-Out</span><a href="assets/work/ise/Best Features Take-Out.pptx.pdf" target="_blank" download>↓ Download</a></div>
-            </div>
-            <div class="media-video media-full">
-              <video controls>
-                <source src="assets/work/ise/ISE-VCD-TG5.mp4" type="video/mp4">
-              </video>
-              <div class="vid-cap">VCD TG5 — product demonstration</div>
-            </div>
-            <div class="media-video media-full">
-              <video controls>
-                <source src="assets/work/ise/VCD TG425 Gerresheimer Lohr 2024-04-10.mp4" type="video/mp4">
-              </video>
-              <div class="vid-cap">VCD TG425 — Gerresheimer Lohr installation, April 2024</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- TH. ZÜRRER -->
     <div class="card reveal">
