@@ -234,53 +234,54 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
     </div>
 
     <!-- 3. ROVER -->
-    <div class="card reveal" id="rover">
-      <div class="card-header" onclick="toggle(this)">
-        <div class="card-main">
-          <div class="card-meta"><span class="tag inst">Columbia University</span><span class="tag">Ongoing</span><span class="tag">2025–26</span></div>
-          <div class="card-title">Space Rover Platform</div>
-          <div class="card-preview">Ground-up rover with Ackermann steering and 50 Hz closed-loop control on RP2040. Solved 3–5 A motor current spikes through capacitive decoupling and isolated regulated power rails.</div>
-        </div>
-        <div class="card-toggle">+</div>
-      </div>
-      <div class="card-detail">
-        <div class="d-sec">
-          <div class="d-label">Overview</div>
-          <div class="d-prose">
-            <p>Ongoing rover project at Columbia University building a complete mobile platform from scratch. Ackermann steering with DC motors and encoders, 50 Hz closed-loop control on RP2040. Motor current spikes (3–5 A) caused voltage drops and resets — resolved with 2200 µF decoupling capacitors, isolated power rails (11.1 V → 5 V for Pi / 6 V for servos), common ground architecture, and correctly sized wire gauges.</p>
-          </div>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Technical Highlights</div>
-          <ul class="d-bullets">
-            <li>Ackermann steering, DC motors, encoders; 50 Hz closed-loop on RP2040</li>
-            <li>3–5 A motor spikes solved: 2200 µF caps across motor driver VIN/GND</li>
-            <li>Isolated rails: 11.1 V → 5 V (Pi) / 6 V (servos); common ground; 5 A regulators</li>
-          </ul>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Tools &amp; Technologies</div>
-          <div class="tech-pills"><span class="tp">RP2040</span><span class="tp">Raspberry Pi</span><span class="tp">DC Motors</span><span class="tp">ROS 2</span><span class="tp">Ackermann Steering</span><span class="tp">Power Electronics</span><span class="tp">C++</span></div>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Media</div>
-          <div class="media-grid">
-            <div class="media-img media-full" onclick="openLb('https://drive.google.com/thumbnail?id=16BOTgb8x6Ho9VGSpaMfL1afGzcIelHsE&sz=w1200','Space Rover Platform — electronics and wiring integration')">
-              <img src="https://drive.google.com/thumbnail?id=16BOTgb8x6Ho9VGSpaMfL1afGzcIelHsE&sz=w800" alt="Space rover platform" style="height:340px;">
-              <div class="img-cap">Space Rover Platform — electronics and wiring integration</div>
+
+        <div class="card reveal" id="rover">
+          <div class="card-header" onclick="toggle(this)">
+            <div class="card-main">
+              <div class="card-meta"><span class="tag inst">Columbia University · Stark Lab</span><span class="tag">Prof. Evan Lerner</span><span class="tag">Ongoing</span><span class="tag">2026</span></div>
+              <div class="card-title">Space Rover Platform</div>
+              <div class="card-preview">Ground-up rover with Ackermann steering and 50 Hz closed-loop control on RP2040. Solved 3–5 A motor current spikes through capacitive decoupling and isolated regulated power rails.</div>
             </div>
-            <div class="media-pdf media-full">
-              <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
-                src="https://drive.google.com/file/d/1DEMfB79msdzKF08ZmXRian-FQ8mfkjee/preview"></iframe>
-              <div class="media-pdf-bar">
-                <span>Annotated chassis diagram</span>
-                <a href="https://drive.google.com/file/d/1DEMfB79msdzKF08ZmXRian-FQ8mfkjee/view" target="_blank">↗ Open in Drive</a>
+            <div class="card-toggle">+</div>
+          </div>
+          <div class="card-detail">
+            <div class="d-sec">
+              <div class="d-label">Overview</div>
+              <div class="d-prose">
+                <p>Ongoing rover project at Columbia University's Stark Lab, supervised by Prof. Evan Lerner. Building a complete mobile platform from scratch integrating mechanical, electrical, and control subsystems. Ackermann steering with DC motors and encoders, 50 Hz closed-loop control on RP2040. Motor current spikes (3–5 A) caused voltage drops and resets — resolved with 2200 µF decoupling capacitors, isolated power rails (11.1 V → 5 V for Pi / 6 V for servos), common ground architecture, and correctly sized wire gauges.</p>
+              </div>
+            </div>
+            <div class="d-sec">
+              <div class="d-label">Technical Highlights</div>
+              <ul class="d-bullets">
+                <li>Ackermann steering, DC motors, encoders; 50 Hz closed-loop on RP2040</li>
+                <li>3–5 A motor spikes solved: 2200 µF caps across motor driver VIN/GND</li>
+                <li>Isolated rails: 11.1 V → 5 V (Pi) / 6 V (servos); common ground; 5 A regulators</li>
+              </ul>
+            </div>
+            <div class="d-sec">
+              <div class="d-label">Tools &amp; Technologies</div>
+              <div class="tech-pills"><span class="tp">RP2040</span><span class="tp">Raspberry Pi</span><span class="tp">DC Motors</span><span class="tp">ROS 2</span><span class="tp">Ackermann Steering</span><span class="tp">Power Electronics</span><span class="tp">C++</span></div>
+            </div>
+            <div class="d-sec">
+              <div class="d-label">Media</div>
+              <div class="media-grid">
+                <div class="media-img media-full" onclick="openLb('https://drive.google.com/thumbnail?id=16BOTgb8x6Ho9VGSpaMfL1afGzcIelHsE&sz=w1200','Space Rover Platform — electronics and wiring integration')">
+                  <img src="https://drive.google.com/thumbnail?id=16BOTgb8x6Ho9VGSpaMfL1afGzcIelHsE&sz=w800" alt="Space rover platform" style="height:340px;">
+                  <div class="img-cap">Space Rover Platform — electronics and wiring integration</div>
+                </div>
+                <div class="media-pdf media-full">
+                  <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                    src="https://drive.google.com/file/d/1DEMfB79msdzKF08ZmXRian-FQ8mfkjee/preview"></iframe>
+                  <div class="media-pdf-bar">
+                    <span>Annotated chassis diagram</span>
+                    <a href="https://drive.google.com/file/d/1DEMfB79msdzKF08ZmXRian-FQ8mfkjee/view" target="_blank">↗ Open in Drive</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
 
     <!-- 4. RL INVENTORY -->
     <div class="card reveal">
