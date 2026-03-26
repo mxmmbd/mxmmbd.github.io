@@ -45,13 +45,15 @@ nav{position:sticky;top:0;z-index:50;background:rgba(245,244,240,0.93);backdrop-
 .tech-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.4rem;}
 .tp{padding:4px 12px;border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--text);background:var(--bg);}
 .media-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:0.7rem;margin-top:0.6rem;}
-.media-item{background:#ECEAE3;border-radius:8px;border:1px solid var(--border);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0.75rem;text-align:center;overflow:hidden;}
+.media-item{background:#ECEAE3;border-radius:8px;border:1px solid var(--border);aspect-ratio:4/3;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:0.75rem;text-align:center;overflow:hidden;text-decoration:none;}
 .media-item.wide{grid-column:span 2;aspect-ratio:16/9;}
 .media-item.doc{aspect-ratio:3/2;}
-.media-item img{width:100%;height:100%;object-fit:cover;border-radius:6px;}
-.media-item a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;width:100%;height:100%;text-decoration:none;}
+.media-item img{width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;}
+.media-item video{width:100%;height:100%;object-fit:cover;border-radius:6px;display:block;}
 .media-icon{font-size:1.1rem;opacity:0.35;}
 .media-cap{font-size:0.68rem;color:var(--muted);line-height:1.45;}
+.coming-soon{background:#F0EEE8;border:1px dashed rgba(17,17,16,0.2);}
+.coming-soon .media-cap{font-style:italic;opacity:0.6;}
 footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;margin:0 auto;display:flex;justify-content:space-between;font-size:0.73rem;color:var(--muted);}
 .reveal{opacity:0;transform:translateY(12px);transition:opacity 0.5s ease,transform 0.5s ease;}
 .reveal.show{opacity:1;transform:none;}
@@ -59,7 +61,6 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
 </style>
 </head>
 <body>
-
 <nav>
   <div class="nav-inner">
     <a href="index.html" class="nav-name">Maxime M</a>
@@ -91,7 +92,7 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
             <span class="tag">2024</span>
           </div>
           <div class="card-title">F1TENTH, ForzaETH: Autonomous Racing</div>
-          <div class="card-preview">Steering system design, embedded control, and structural reliability for a 1:10 autonomous race car. Feedback error under 5%, response time ~0.2 s. System integrated into the ForzaETH ROS-based autonomy stack in the context of ICRA 2024.</div>
+          <div class="card-preview">Steering system design, embedded control, and structural reliability for a 1:10 autonomous race car. Feedback error under 5%, response time ~0.2 s. Integrated in ForzaETH ROS autonomy stack for ICRA 2024.</div>
         </div>
         <div class="card-toggle">+</div>
       </div>
@@ -99,22 +100,20 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Overview</div>
           <div class="d-prose">
-            <p>Bachelor thesis at ETH Zurich, conducted in the Project-Based Learning Lab (Department of Electrical Engineering), in collaboration with the ForzaETH F1TENTH team. Supervised by Prof. John Lygeros and Prof. Michele Magno. The project focused on steering system design, embedded control integration, and structural reliability for a 1:10 autonomous race car under competitive conditions.</p>
-            <p>The original sensor mounting used a plexiglass plate that fractured and vibrated after collisions, causing LiDAR misalignment and roughly 1.5 hours of replacement time per incident. A redesigned structural solution — developed in Siemens NX — eliminated that failure mode and restored sensor stability. The servo-actuated steering system was designed and validated with feedback error under 5% and response time approximately 0.2 s.</p>
-            <p>Embedded control was implemented using STM32, Arduino Pico, and a custom PCB, delivering real-time steering feedback within the team's ROS-based autonomy stack. The integrations contributed to the ForzaETH platform in the context of ICRA 2024. Failures across mechanical, embedded, and ROS integration layers were systematically diagnosed and resolved.</p>
+            <p>Bachelor thesis at ETH Zurich (PBL Lab, Dept. of Electrical Engineering) with ForzaETH. Supervised by Prof. John Lygeros and Prof. Michele Magno. Focused on steering system design, embedded control, and structural reliability for a 1:10 autonomous race car under competitive conditions.</p>
+            <p>The original plexiglass sensor mounting plate fractured under collisions, causing LiDAR misalignment and ~1.5 h replacement time per incident. A redesigned structural solution (Siemens NX) eliminated the failure mode. Servo-actuated steering validated with feedback error under 5% and response time ~0.2 s. Embedded control via STM32, Arduino Pico, and custom PCB within the ROS autonomy stack. Contributions tied to ForzaETH's platform in the context of ICRA 2024.</p>
           </div>
         </div>
         <div class="d-sec">
           <div class="d-label">Technical Highlights</div>
           <ul class="d-bullets">
-            <li>Redesigned plexiglass sensor mounting plate to eliminate crash-induced LiDAR misalignment and ~1.5 h replacement cycles</li>
-            <li>Servo-actuated steering system: feedback error under 5%, response time ~0.2 s</li>
-            <li>Custom test fixtures; static and dynamic load testing across slalom, figure-eight, and circular trajectories</li>
-            <li>All test data recorded in ROS bags for systematic comparison and validation</li>
-            <li>Embedded control: STM32, Arduino Pico, custom PCB — real-time steering feedback in ROS autonomy stack</li>
-            <li>Structural and vibration testing to evaluate chassis compliance under dynamic loads</li>
-            <li>Diagnosed and resolved failures across mechanical, embedded, and ROS integration layers</li>
-            <li>CAD work in Siemens NX</li>
+            <li>Plexiglass mount redesigned → LiDAR stability restored; ~1.5 h replacement cycles eliminated</li>
+            <li>Servo steering: feedback error &lt;5%, response time ~0.2 s</li>
+            <li>Custom test fixtures; static + dynamic load testing across slalom, figure-eight, circular trajectories</li>
+            <li>All data recorded in ROS bags for systematic validation</li>
+            <li>STM32, Arduino Pico, custom PCB — real-time steering feedback in ROS stack</li>
+            <li>Failures diagnosed across mechanical, embedded, and ROS integration layers</li>
+            <li>CAD in Siemens NX</li>
           </ul>
         </div>
         <div class="d-sec">
@@ -126,8 +125,16 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Media</div>
           <div class="media-grid">
-            <div class="media-item wide doc"><div class="media-icon">📄</div><div class="media-cap">Bachelor thesis report<br><em style="font-size:0.6rem;opacity:0.6;">assets/research/f1tenth/thesis.pdf</em></div></div>
-            <div class="media-item wide doc"><div class="media-icon">📊</div><div class="media-cap">Thesis presentation slides<br><em style="font-size:0.6rem;opacity:0.6;">assets/research/f1tenth/slides.pdf</em></div></div>
+            <!-- THESIS + SLIDES too large — add later -->
+            <div class="media-item wide coming-soon"><div class="media-icon">📄</div><div class="media-cap">Bachelor thesis report — coming soon</div></div>
+            <div class="media-item wide coming-soon"><div class="media-icon">📊</div><div class="media-cap">Thesis presentation slides — coming soon</div></div>
+            <!-- CRASH VIDEO + PHOTO — live -->
+            <div class="media-item wide">
+              <video controls>
+                <source src="assets/research/f1tenth/crashvideo.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="media-item wide"><img src="assets/research/f1tenth/Picture1.jpg" alt="F1TENTH car"></div>
           </div>
         </div>
       </div>
@@ -143,7 +150,7 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
             <span class="tag">2023–24</span>
           </div>
           <div class="card-title">Review of Vehicle Lane Changing Models</div>
-          <div class="card-preview">Critical analysis of classical, probabilistic, and AI-based lane-changing models for autonomous and mixed-traffic scenarios. Supervised by Prof. Emilio Frazzoli at IDSC. Findings defended before PhD researchers and faculty.</div>
+          <div class="card-preview">Critical analysis of classical, probabilistic, and AI-based lane-changing models for autonomous and mixed-traffic scenarios. Supervised by Prof. Emilio Frazzoli. Findings defended before PhD researchers and faculty.</div>
         </div>
         <div class="card-toggle">+</div>
       </div>
@@ -151,17 +158,17 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Overview</div>
           <div class="d-prose">
-            <p>First academic research experience, at the Institute for Dynamic Systems and Control (IDSC), ETH Zurich, within the Studies on Mechatronics program. Supervised by Prof. Emilio Frazzoli. The project focused on critically analyzing lane-change models for human-driven and autonomous vehicles, and assessing their relevance for mixed-traffic environments where human and autonomous agents share the road.</p>
-            <p>The work involved reviewing, categorizing, and evaluating classical rule-based, probabilistic, and AI-based lane-changing models — identifying their assumptions, behavioral fidelity, computational demands, strengths, and limitations. Findings were synthesized into a written report and defended before PhD researchers and faculty at IDSC.</p>
+            <p>First academic research experience at the Institute for Dynamic Systems and Control (IDSC), ETH Zurich, within Studies on Mechatronics. Supervised by Prof. Emilio Frazzoli. Critically analyzed lane-change models for human-driven and autonomous vehicles and assessed their relevance for mixed-traffic environments.</p>
+            <p>Reviewed, categorized, and evaluated classical rule-based, probabilistic, and AI-based models — identifying assumptions, behavioral fidelity, computational demands, strengths, and limitations. Findings defended before PhD researchers and faculty.</p>
           </div>
         </div>
         <div class="d-sec">
           <div class="d-label">Technical Highlights</div>
           <ul class="d-bullets">
             <li>Reviewed and categorized classical, probabilistic, and AI-based lane-changing models</li>
-            <li>Evaluated suitability for ADAS and fully autonomous mixed-traffic deployment</li>
-            <li>Identified limitations relevant to real-world heterogeneous traffic scenarios</li>
-            <li>Findings defended before PhD researchers and faculty at IDSC, ETH Zurich</li>
+            <li>Evaluated suitability for ADAS and autonomous mixed-traffic deployment</li>
+            <li>Identified limitations relevant to real-world heterogeneous traffic</li>
+            <li>Findings defended before PhD researchers and faculty at IDSC</li>
           </ul>
         </div>
         <div class="d-sec">
@@ -173,8 +180,15 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Media</div>
           <div class="media-grid">
-            <div class="media-item wide doc"><div class="media-icon">📄</div><div class="media-cap">Paper — review of vehicle lane-changing models<br><em style="font-size:0.6rem;opacity:0.6;">assets/research/lane-changing/paper.pdf</em></div></div>
-            <div class="media-item wide doc"><div class="media-icon">📊</div><div class="media-cap">Presentation slides — findings summary<br><em style="font-size:0.6rem;opacity:0.6;">assets/research/lane-changing/slides.pdf</em></div></div>
+            <a class="media-item wide doc" href="assets/research/lane-changing/Review_of_Vehicle_Lane_Changing_Models.pdf" target="_blank">
+              <div class="media-icon">📄</div>
+              <div class="media-cap">Paper — review of vehicle lane-changing models</div>
+            </a>
+            <!-- SLIDES 18MB — borderline, try linking; if slow swap for coming-soon -->
+            <a class="media-item wide doc" href="assets/research/lane-changing/Final_SOM presentation.pptx" target="_blank">
+              <div class="media-icon">📊</div>
+              <div class="media-cap">Presentation slides — findings summary</div>
+            </a>
           </div>
         </div>
       </div>
@@ -190,7 +204,7 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
             <span class="tag">2026</span>
           </div>
           <div class="card-title">MiniBEE — Manipulator Kinematic Optimization</div>
-          <div class="card-preview">Optimizing the kinematic chain of the MiniBEE manipulator across 6, 7, and 8 DOF configurations to minimize singularities and self-collisions while achieving full coverage of a 20 × 20 × 20 cm target workspace.</div>
+          <div class="card-preview">Optimizing the MiniBEE manipulator kinematic chain across 6, 7, and 8 DOF configurations to minimize singularities and self-collisions while achieving full coverage of a 20 × 20 × 20 cm workspace.</div>
         </div>
         <div class="card-toggle">+</div>
       </div>
@@ -198,17 +212,16 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Overview</div>
           <div class="d-prose">
-            <p>Research at the ROAM Lab, Columbia University. MiniBEE is a compact robotic manipulator. The research question is identifying which DOF configuration — among 6, 7, and 8 DOF variants — achieves the fewest singularities and self-collisions while maintaining full accessibility across a 20 × 20 × 20 cm cubic workspace. This involves systematic evaluation of kinematic chain structures and joint limit configurations to maximize manipulability and dexterity across the required task space.</p>
-            <p>Work includes URDF model development, MoveIt configuration for motion planning in a ROS 2 stack, and quantitative workspace coverage and manipulability evaluation across candidate configurations.</p>
+            <p>Research at the ROAM Lab, Columbia University. MiniBEE is a compact robotic manipulator. The core question: which DOF configuration (6, 7, or 8) achieves fewest singularities and self-collisions while maintaining full coverage of a 20 × 20 × 20 cm cubic workspace. Involves URDF modeling, MoveIt configuration in ROS 2, and quantitative workspace and manipulability evaluation across candidate configurations.</p>
           </div>
         </div>
         <div class="d-sec">
           <div class="d-label">Technical Highlights</div>
           <ul class="d-bullets">
-            <li>Evaluating 6, 7, and 8 DOF kinematic configurations for singularity and self-collision minimization</li>
+            <li>Evaluating 6, 7, and 8 DOF kinematic chains for singularity and self-collision minimization</li>
             <li>Target: full coverage of 20 × 20 × 20 cm workspace</li>
-            <li>URDF models developed; MoveIt configured in ROS 2</li>
-            <li>Workspace coverage and manipulability metrics used to compare configurations quantitatively</li>
+            <li>URDF models + MoveIt configured in ROS 2</li>
+            <li>Workspace coverage and manipulability metrics used for quantitative comparison</li>
           </ul>
         </div>
         <div class="d-sec">
@@ -220,8 +233,8 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Media</div>
           <div class="media-grid">
-            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">Robot model visualization<br><em style="font-size:0.6rem;opacity:0.6;">assets/research/minibee/model.png</em></div></div>
-            <div class="media-item"><div class="media-icon">🖼</div><div class="media-cap">Workspace analysis<br><em style="font-size:0.6rem;opacity:0.6;">assets/research/minibee/workspace.png</em></div></div>
+            <div class="media-item coming-soon"><div class="media-icon">🖼</div><div class="media-cap">Robot model — coming soon</div></div>
+            <div class="media-item coming-soon"><div class="media-icon">🖼</div><div class="media-cap">Workspace analysis — coming soon</div></div>
           </div>
         </div>
       </div>
@@ -229,7 +242,6 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
 
   </div>
 </div>
-
 <footer><span>Maxime M</span><span>© 2025 · Columbia University</span></footer>
 <script>
 function toggle(h){h.parentElement.classList.toggle('open');}
