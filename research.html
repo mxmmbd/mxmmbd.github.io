@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Maxime M</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@300;400;500&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{--bg:#F5F4F0;--surface:#FFFFFF;--text:#111110;--muted:#6B6A65;--border:rgba(17,17,16,0.1);--border-h:rgba(17,17,16,0.32);--ff-serif:'Instrument Serif',Georgia,serif;--ff-sans:'Instrument Sans',system-ui,sans-serif;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--ff-sans);background:var(--bg);color:var(--text);min-height:100vh;}
+.page{max-width:740px;margin:0 auto;padding:0 2rem;}
+nav{position:sticky;top:0;z-index:50;background:rgba(245,244,240,0.93);backdrop-filter:blur(14px);border-bottom:1px solid var(--border);padding:0 2rem;}
+.nav-inner{max-width:740px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:56px;}
+.nav-name{font-family:var(--ff-serif);font-size:1.05rem;color:var(--text);text-decoration:none;}
+.nav-links{display:flex;gap:1.6rem;list-style:none;}
+.nav-links a{font-size:0.8rem;color:var(--muted);text-decoration:none;transition:color 0.15s;}
+.nav-links a:hover,.nav-links a.active{color:var(--text);}
+.page-header{padding:4rem 0 2.5rem;}
+.page-header h1{font-family:var(--ff-serif);font-size:clamp(2rem,5vw,3rem);letter-spacing:-0.025em;line-height:1.1;margin-bottom:0.75rem;}
+.page-header h1 em{font-style:italic;color:var(--muted);}
+.page-header p{font-size:0.92rem;color:var(--muted);font-weight:300;line-height:1.75;max-width:58ch;}
+.sep{border:none;border-top:1px solid var(--border);}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1rem;transition:border-color 0.18s;}
+.card:hover{border-color:var(--border-h);}
+.card-header{display:flex;align-items:flex-start;justify-content:space-between;gap:1.5rem;padding:1.2rem 1.4rem;cursor:pointer;}
+.card-main{flex:1;}
+.card-meta{display:flex;gap:0.45rem;flex-wrap:wrap;margin-bottom:0.5rem;align-items:center;}
+.tag{font-size:0.63rem;padding:2px 9px;border:1px solid var(--border);border-radius:100px;color:var(--muted);white-space:nowrap;}
+.tag.inst{background:#ECEAE3;border-color:transparent;color:#555;}
+.card-title{font-family:var(--ff-serif);font-size:1.08rem;letter-spacing:-0.015em;line-height:1.3;margin-bottom:0.3rem;}
+.card-preview{font-size:0.82rem;color:var(--muted);font-weight:300;line-height:1.6;}
+.card-toggle{flex-shrink:0;font-size:1.1rem;color:var(--muted);transition:transform 0.22s;user-select:none;padding-top:2px;line-height:1;}
+.card.open .card-toggle{transform:rotate(45deg);}
+.card-detail{display:none;padding:0 1.4rem 1.5rem;border-top:1px solid var(--border);}
+.card.open .card-detail{display:block;}
+.d-sec{margin-top:1.2rem;}
+.d-label{font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:0.55rem;}
+.d-prose{font-size:0.86rem;color:var(--muted);font-weight:300;line-height:1.8;}
+.d-prose p+p{margin-top:0.7rem;}
+.d-bullets{list-style:none;padding:0;display:flex;flex-direction:column;gap:0.35rem;}
+.d-bullets li{font-size:0.84rem;color:var(--muted);font-weight:300;line-height:1.6;padding-left:1rem;position:relative;}
+.d-bullets li::before{content:'—';position:absolute;left:0;color:#aaa;}
+.tech-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:0.4rem;}
+.tp{padding:4px 12px;border:1px solid var(--border);border-radius:100px;font-size:0.72rem;color:var(--text);background:var(--bg);}
+.media-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem;margin-top:0.6rem;}
+.media-full{grid-column:span 2;}
+.media-img{position:relative;border-radius:8px;overflow:hidden;background:#ECEAE3;border:1px solid var(--border);cursor:zoom-in;}
+.media-img img{width:100%;height:280px;object-fit:cover;object-position:center;display:block;transition:transform 0.3s ease;}
+.media-img:hover img{transform:scale(1.03);}
+.media-img .img-cap{position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,0.6));color:#fff;font-size:0.7rem;padding:2rem 0.75rem 0.65rem;opacity:0;transition:opacity 0.22s;}
+.media-img:hover .img-cap{opacity:1;}
+.media-pdf{border-radius:8px;overflow:hidden;border:1px solid var(--border);background:#f8f7f4;}
+.media-pdf iframe{width:100%;height:680px;border:none;display:block;}
+.media-pdf-bar{padding:9px 14px;font-size:0.7rem;color:var(--muted);border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;background:var(--surface);}
+.media-pdf-bar a{color:var(--muted);font-size:0.68rem;text-decoration:none;}
+.media-pdf-bar a:hover{color:var(--text);}
+.media-video{border-radius:8px;overflow:hidden;border:1px solid var(--border);background:#111;}
+.media-video video{width:100%;display:block;max-height:360px;object-fit:contain;}
+.media-video .vid-cap{padding:9px 14px;font-size:0.7rem;color:var(--muted);background:var(--surface);border-top:1px solid var(--border);}
+.media-soon{border-radius:8px;border:1px dashed rgba(17,17,16,0.15);background:var(--bg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;padding:2rem 1rem;text-align:center;min-height:120px;}
+.media-soon span{font-size:0.7rem;color:var(--muted);font-style:italic;}
+.media-dl{border-radius:8px;border:1px solid var(--border);background:var(--surface);display:flex;align-items:center;justify-content:space-between;padding:0.85rem 1rem;text-decoration:none;color:var(--text);transition:border-color 0.18s;}
+.media-dl:hover{border-color:var(--border-h);}
+.media-dl-info{display:flex;flex-direction:column;gap:2px;}
+.media-dl-name{font-size:0.82rem;font-weight:500;}
+.media-dl-type{font-size:0.68rem;color:var(--muted);}
+.media-dl-arrow{font-size:1rem;color:var(--muted);}
+.lb{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:999;align-items:center;justify-content:center;padding:1rem;}
+.lb.show{display:flex;}
+.lb img{max-width:90vw;max-height:86vh;object-fit:contain;border-radius:6px;}
+.lb-cap{position:fixed;bottom:1.2rem;left:0;right:0;text-align:center;color:rgba(255,255,255,0.7);font-size:0.78rem;}
+.lb-close{position:fixed;top:1rem;right:1.5rem;color:#fff;font-size:2rem;cursor:pointer;line-height:1;opacity:0.65;}
+.lb-close:hover{opacity:1;}
+footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;margin:0 auto;display:flex;justify-content:space-between;font-size:0.73rem;color:var(--muted);}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity 0.5s ease,transform 0.5s ease;}
+.reveal.show{opacity:1;transform:none;}
+@media(max-width:620px){.nav-links{gap:1rem;}.nav-links a{font-size:0.74rem;}.media-grid{grid-template-columns:1fr;}.media-full{grid-column:span 1;}}
+</style>
+</head>
+<body>
+<div class="lb" id="lb" onclick="closeLb()"><span class="lb-close">×</span><img id="lb-img" src="" alt=""><div class="lb-cap" id="lb-cap"></div></div>
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-name">Maxime M</a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="research.html" class="active">Research</a></li>
+      <li><a href="experience.html">Experience</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+<div class="page">
+  <div class="page-header">
+    <h1 class="reveal">Research.</h1>
+    <p class="reveal">Thesis and research-oriented work from ETH Zurich and Columbia University — autonomous systems, robotic manipulation, and applied AI.</p>
+  </div>
+  <hr class="sep">
+  <div style="padding:2.5rem 0 4rem;">
+
+    <!-- F1TENTH -->
+    <div class="card reveal" id="f1tenth">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta"><span class="tag inst">ETH Zurich · ForzaETH</span><span class="tag">Bachelor Thesis · PBL Lab</span><span class="tag">2024</span></div>
+          <div class="card-title">F1TENTH, ForzaETH: Autonomous Racing</div>
+          <div class="card-preview">Steering system design, embedded control, and structural reliability for a 1:10 autonomous race car. Feedback error under 5%, response time ~0.2 s. Integrated in ForzaETH ROS autonomy stack for ICRA 2024.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Bachelor thesis at ETH Zurich (PBL Lab, Dept. of Electrical Engineering) with ForzaETH. Supervised by Prof. John Lygeros and Prof. Michele Magno. Focused on steering system design, embedded control, and structural reliability for a 1:10 autonomous race car under competitive conditions.</p>
+            <p>The original plexiglass sensor mounting plate fractured under collisions, causing LiDAR misalignment and ~1.5 h replacement time per incident. A redesigned structural solution (Siemens NX) eliminated the failure mode. Servo-actuated steering validated with feedback error under 5% and response time ~0.2 s. Embedded control via STM32, Arduino Pico, and custom PCB within the ROS autonomy stack. Contributions tied to ForzaETH's platform for ICRA 2024.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>Plexiglass mount redesigned → LiDAR stability restored; ~1.5 h replacement cycles eliminated</li>
+            <li>Servo steering: feedback error &lt;5%, response time ~0.2 s</li>
+            <li>Custom test fixtures; static + dynamic load testing: slalom, figure-eight, circular trajectories</li>
+            <li>All data recorded in ROS bags for systematic validation</li>
+            <li>STM32, Arduino Pico, custom PCB — real-time steering feedback in ROS stack</li>
+            <li>CAD in Siemens NX</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills"><span class="tp">ROS</span><span class="tp">STM32</span><span class="tp">Arduino Pico</span><span class="tp">Custom PCB</span><span class="tp">LiDAR</span><span class="tp">Siemens NX</span><span class="tp">VESC</span><span class="tp">ROS Bags</span></div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <div class="media-pdf media-full">
+              <iframe src="assets/research/f1tenth/FS2024_Bachelorthesis_Report_Maxime_Mobayed_Mechatronics_Bonanza_in_the_Context_of_F1TENTH.pdf" title="F1TENTH Bachelor thesis report"></iframe>
+              <div class="media-pdf-bar"><span>Bachelor thesis report</span><a href="assets/research/f1tenth/FS2024_Bachelorthesis_Report_Maxime_Mobayed_Mechatronics_Bonanza_in_the_Context_of_F1TENTH.pdf" target="_blank" download>↓ Download</a></div>
+            </div>
+            <div class="media-soon media-full"><span>📊 Thesis presentation slides — coming soon (file too large)</span></div>
+            <div class="media-video media-full">
+              <video controls>
+                <source src="assets/research/f1tenth/crashvideo.mp4" type="video/mp4">
+              </video>
+              <div class="vid-cap">F1TENTH crash and recovery test</div>
+            </div>
+            <div class="media-img media-full" onclick="openLb('assets/research/f1tenth/Picture1.jpg','F1TENTH autonomous race car — ETH Zurich / ForzaETH')">
+              <img src="assets/research/f1tenth/Picture1.jpg" alt="F1TENTH race car" style="height:340px;">
+              <div class="img-cap">F1TENTH autonomous race car — ETH Zurich / ForzaETH</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LANE CHANGING -->
+    <div class="card reveal">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta"><span class="tag inst">ETH Zurich · IDSC</span><span class="tag">Studies on Mechatronics</span><span class="tag">2023–24</span></div>
+          <div class="card-title">Review of Vehicle Lane Changing Models</div>
+          <div class="card-preview">Critical analysis of classical, probabilistic, and AI-based lane-changing models for autonomous and mixed-traffic scenarios. Supervised by Prof. Emilio Frazzoli. Findings defended before PhD researchers and faculty.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>First academic research experience at the Institute for Dynamic Systems and Control (IDSC), ETH Zurich, within Studies on Mechatronics. Supervised by Prof. Emilio Frazzoli. Critically analyzed lane-change models for human-driven and autonomous vehicles, assessing relevance for mixed-traffic environments. Findings defended before PhD researchers and faculty at IDSC.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>Reviewed and categorized classical, probabilistic, and AI-based lane-changing models</li>
+            <li>Evaluated suitability for ADAS and autonomous mixed-traffic deployment</li>
+            <li>Identified limitations for real-world heterogeneous traffic scenarios</li>
+            <li>Findings defended before PhD researchers and faculty at IDSC</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills"><span class="tp">Literature Review</span><span class="tp">Autonomous Driving</span><span class="tp">Traffic Modeling</span><span class="tp">MATLAB</span></div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <div class="media-pdf media-full">
+              <iframe src="assets/research/lane-changing/Review_of_Vehicle_Lane_Changing_Models.pdf" title="Lane changing models paper"></iframe>
+              <div class="media-pdf-bar"><span>Paper — Review of Vehicle Lane Changing Models</span><a href="assets/research/lane-changing/Review_of_Vehicle_Lane_Changing_Models.pdf" target="_blank" download>↓ Download</a></div>
+            </div>
+            <div class="media-pdf media-full">
+              <iframe src="assets/research/lane-changing/Final_SOM presentation" title="Presentation slides"></iframe>
+              <div class="media-pdf-bar"><span>Presentation slides — Studies on Mechatronics</span><a href="assets/research/lane-changing/Final_SOM presentation" target="_blank" download>↓ Download</a></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MINIBEE -->
+    <div class="card reveal">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta"><span class="tag inst">Columbia University · ROAM Lab</span><span class="tag">Research</span><span class="tag">2026</span></div>
+          <div class="card-title">MiniBEE — Manipulator Kinematic Optimization</div>
+          <div class="card-preview">Optimizing the MiniBEE manipulator kinematic chain across 6, 7, and 8 DOF configurations to minimize singularities and self-collisions while achieving full coverage of a 20 × 20 × 20 cm workspace.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Research at the ROAM Lab, Columbia University. MiniBEE is a compact robotic manipulator. The core question: which DOF configuration (6, 7, or 8) achieves fewest singularities and self-collisions while maintaining full coverage of a 20 × 20 × 20 cm cubic workspace. Involves URDF modeling, MoveIt configuration in ROS 2, and quantitative workspace and manipulability evaluation across candidate configurations.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>Evaluating 6, 7, and 8 DOF kinematic chains for singularity and self-collision minimization</li>
+            <li>Target: full coverage of 20 × 20 × 20 cm workspace</li>
+            <li>URDF models + MoveIt configured in ROS 2</li>
+            <li>Workspace coverage and manipulability metrics for quantitative comparison</li>
+          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills"><span class="tp">ROS 2</span><span class="tp">MoveIt</span><span class="tp">URDF</span><span class="tp">Kinematics</span><span class="tp">Python</span></div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <div class="media-video media-full">
+              <video controls>
+                <source src="assets/research/minibee/kd_metric_clip_small.mp4" type="video/mp4">
+              </video>
+              <div class="vid-cap">MiniBEE — KD metric visualization</div>
+            </div>
+            <div class="media-video media-full">
+              <video controls>
+                <source src="assets/research/minibee/minibee_datacollection_wide.mp4" type="video/mp4">
+              </video>
+              <div class="vid-cap">MiniBEE — data collection, wide view</div>
+            </div>
+            <div class="media-video media-full">
+              <video controls>
+                <source src="assets/research/minibee/Screencast from 2026-03-24 13-17-03.webm" type="video/webm">
+              </video>
+              <div class="vid-cap">MiniBEE — kinematic simulation, view 1</div>
+            </div>
+            <div class="media-video media-full">
+              <video controls>
+                <source src="assets/research/minibee/Screencast from 03-24-2026 07_18_12 PM.webm" type="video/webm">
+              </video>
+              <div class="vid-cap">MiniBEE — kinematic simulation, view 2</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<footer><span>Maxime M</span><span>© 2025 · Columbia University</span></footer>
+<script>
+function toggle(h){h.parentElement.classList.toggle('open');}
+function openLb(src,cap){document.getElementById('lb-img').src=src;document.getElementById('lb-cap').textContent=cap;document.getElementById('lb').classList.add('show');}
+function closeLb(){document.getElementById('lb').classList.remove('show');document.getElementById('lb-img').src='';}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeLb();});
+const p=new URLSearchParams(window.location.search).get('open');
+if(p){const t=document.getElementById(p);if(t){t.classList.add('open');setTimeout(()=>t.scrollIntoView({behavior:'smooth',block:'start'}),200);}}
+const els=document.querySelectorAll('.reveal');
+const obs=new IntersectionObserver(e=>{e.forEach((el,i)=>{if(el.isIntersecting){setTimeout(()=>el.target.classList.add('show'),i*50);obs.unobserve(el.target);}});},{threshold:0.06});
+els.forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
