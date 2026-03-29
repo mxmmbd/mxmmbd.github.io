@@ -126,9 +126,11 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
             <li>Servo steering: feedback error &lt;5%, response time ~0.2 s</li>
             <li>Custom test fixtures; static + dynamic load testing: slalom, figure-eight, circular trajectories</li>
             <li>All data recorded in ROS bags for systematic validation</li>
-            <li>STM32, Arduino Pico, custom PCB — real-time steering feedback in ROS stack</li>
-            <li>CAD in Siemens NX</li>
-            <li>Failures diagnosed and resolved across mechanical, embedded, and ROS integration layers</li>
+            <li>Wrote ROS publisher nodes for steering feedback on Arduino; mapped ADC servo output to steering angle and published to onboard computer</li>
+            <li>Designed and soldered custom PCB integrating power supply and signal routing for STM32 and Arduino; enabled onboard ROS node communication for steering feedback and state indication</li>
+            <li>Wrote C++ and Python test scripts within ROS to validate servo accuracy, LED state indicators, and steering maneuvers across multiple speed profiles</li>
+            <li>Diagnosed failures across mechanical structure, PCB, embedded firmware, and ROS integration on the same vehicle using cross-layer debugging without external test equipment</li>
+            <li>CAD in Siemens NX; hardware redesign deployed on both ICRA 2024 competition vehicles with no structural failures during competition</li>
           </ul>
         </div>
         <div class="d-sec">
