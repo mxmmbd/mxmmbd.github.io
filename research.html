@@ -243,11 +243,11 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Technical Highlights</div>
           <ul class="d-bullets">
-            <li>Evaluating 6, 7, and 8 DOF kinematic chains for singularity and self-collision minimization</li>
-            <li>Target: full coverage of 20 × 20 × 20 cm workspace</li>
-            <li>URDF models + MoveIt configured in ROS 2</li>
-            <li>Workspace coverage and manipulability metrics for quantitative comparison</li>
-          </ul>
+            <li>Redesigned 6-DOF kinematic chain; improved dexterity metric from 2% (lab's prior published baseline) to 23.35% through iterative link geometry and joint configuration changes</li>
+            <li>Evaluated 8-DOF configuration; achieved 90% KD metric against lab benchmark of 92%</li>
+            <li>Analyzed configurations from 6 to 9 DOF using Jacobian-based metrics: manipulability, singularities, and workspace coverage</li>
+            <li>Configured MoveIt motion planning stack; validated IK solutions under joint limits and collision constraints for bimanual task execution</li>
+            <li>Developing automated search algorithm to evaluate link length and joint configuration combinations systematically</li>          </ul>
         </div>
         <div class="d-sec">
           <div class="d-label">Tools &amp; Technologies</div>
