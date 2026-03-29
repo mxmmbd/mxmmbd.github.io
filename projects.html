@@ -133,9 +133,10 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
             <li>Klann linkage 8-legged mechanism driven by two servo arms; designed in Fusion 360</li>
             <li>Two redesign cycles: material reduction + tolerance improvement; fastener binding resolution</li>
             <li>Platform: 6 servos, Raspberry Pi, IMU; electronics soldered on-board</li>
-            <li>Crab walking gait and body reorientation via IMU feedback</li>
+            <li>Designed press-fit interface to servo output gears at 0.15 mm interference; two iterations to achieve retention under full robot weight without gear damage</li>
+            <li>State-based locomotion controller on Raspberry Pi: forward gait, crab walk, and terrain-adaptive reorientation; IMU-driven threshold logic across three body joints for stability on inclined terrain</li>
             <li>Gait optimization: random search, hill climber, parallel mutation hill climber</li>
-            <li>MuJoCo simulation for gait validation; PPO via Gymnasium + stable-baselines3 for sim-to-real</li>
+            <li>MuJoCo simulation for gait validation; PPO trained via Gymnasium + stable-baselines3; policy outputs mapped to servo commands for sim-to-real hardware transfer</li>
           </ul>
         </div>
         <div class="d-sec">
