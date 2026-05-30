@@ -250,15 +250,17 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Overview</div>
           <div class="d-prose">
-            <p>Ongoing rover project at Columbia University's Stark Lab, supervised by Prof. Evan Lerner. Building a complete mobile platform from scratch integrating mechanical, electrical, and control subsystems. Ackermann steering with DC motors and encoders, 50 Hz closed-loop control on RP2040. Motor current spikes (3–5 A) caused voltage drops and resets — resolved with 2200 µF decoupling capacitors, isolated power rails (11.1 V → 5 V for Pi / 6 V for servos), common ground architecture, and correctly sized wire gauges.</p>
+            <p>Lunar rover project at Columbia University's Stark Lab, supervised by Prof. Evan Lerner. Building a complete mobile platform from scratch integrating mechanical, electrical, and control subsystems. Ackermann steering with DC motors and encoders, 50 Hz closed-loop control on RP2040. Motor current spikes (3–5 A) caused voltage drops and resets — resolved with 2200 µF decoupling capacitors, isolated power rails (11.1 V → 5 V for Pi / 6 V for servos), common ground architecture, and correctly sized wire gauges.</p>
           </div>
         </div>
         <div class="d-sec">
           <div class="d-label">Technical Highlights</div>
           <ul class="d-bullets">
-            <li>Ackermann steering, DC motors, encoders; 50 Hz closed-loop on RP2040</li>
-            <li>3–5 A motor spikes solved: 2200 µF caps across motor driver VIN/GND</li>
-            <li>Isolated rails: 11.1 V → 5 V (Pi) / 6 V (servos); common ground; 5 A regulators</li>
+            <li>Teleoperated differential-drive rover using ROS 2, Raspberry Pi 4, and Arduino Uno</li>
+            <li>Closed-loop wheel-speed control using quadrature encoder feedback and PID-structured motor control</li>
+            <li>Bidirectional ROS serial bridge: keyboard teleop → motors → encoder/IMU feedback</li>
+            <li>BNO055 IMU integration, calibration, and ROS sensor publishing (/imu)</li>
+            <li>2200 µF bulk capacitance and multi-rail power architecture to mitigate motor-current transients</li>
           </ul>
         </div>
         <div class="d-sec">
