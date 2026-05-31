@@ -102,6 +102,72 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
   <hr class="sep">
   <div style="padding:2.5rem 0 4rem;">
 
+    
+    <!-- MINIBEE -->
+<div class="card reveal" id="minibee">
+      <div class="card-header" onclick="toggle(this)">
+        <div class="card-main">
+          <div class="card-meta"><span class="tag inst">Columbia University · ROAM Lab</span><span class="tag">Research</span><span class="tag">Prof. Matei Ciocarlie</span><span class="tag">2026</span></div>
+          <div class="card-title">MiniBEE — Manipulator Kinematic Optimization</div>
+          <div class="card-preview">Optimizing the MiniBEE manipulator kinematic chain across 6, 7, and 8 DOF configurations to minimize singularities and self-collisions while achieving full coverage of a 20 × 20 × 20 cm workspace.</div>
+        </div>
+        <div class="card-toggle">+</div>
+      </div>
+      <div class="card-detail">
+        <div class="d-sec">
+          <div class="d-label">Overview</div>
+          <div class="d-prose">
+            <p>Research at the ROAM Lab, Columbia University. MiniBEE is a compact robotic manipulator platform. The research focuses on optimizing the kinematic chain across 6, 7, and 8 DOF configurations to identify which structure achieves the fewest singularities and self-collisions while maintaining full coverage of a 20 × 20 × 20 cm cubic workspace. Work involves URDF modeling, MoveIt configuration in ROS 2, and quantitative evaluation of workspace coverage and manipulability metrics across candidate configurations.</p>
+          </div>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Technical Highlights</div>
+          <ul class="d-bullets">
+            <li>Redesigned 6-DOF kinematic chain; improved dexterity metric from 2% (lab's prior published baseline) to 29.2% through iterative link geometry and joint configuration changes</li>
+            <li>Evaluated 8-DOF configuration; achieved 90% KD metric against lab benchmark of 92%</li>
+            <li>Analyzed configurations from 6 to 9 DOF using Jacobian-based metrics: manipulability, singularities, and workspace coverage</li>
+            <li>Configured MoveIt motion planning stack; validated IK solutions under joint limits and collision constraints for bimanual task execution</li>
+            <li>Developing automated search algorithm to evaluate link length and joint configuration combinations systematically</li>          </ul>
+        </div>
+        <div class="d-sec">
+          <div class="d-label">Tools &amp; Technologies</div>
+          <div class="tech-pills"><span class="tp">ROS 2</span><span class="tp">MoveIt</span><span class="tp">URDF</span><span class="tp">Kinematics</span><span class="tp">Python</span></div>
+        </div>
+          <div class="d-sec">
+          <div class="d-label">Media</div>
+          <div class="media-grid">
+            <div class="media-video media-full">
+              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                src="https://drive.google.com/file/d/1a1rOna-bZ564b0pRKQlzyHo5NKEM_mCa/preview" allowfullscreen></iframe>
+              <div class="vid-cap">MiniBEE — KD metric visualization</div>
+            </div>
+            <div class="media-video media-full">
+              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                src="https://drive.google.com/file/d/1EV0qpioqtrA2NPR0FwOh1Yz7vG2bp5iV/preview" allowfullscreen></iframe>
+              <div class="vid-cap">MiniBEE — data collection, wide view</div>
+            </div>
+            <div class="media-video media-full">
+              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                src="https://drive.google.com/file/d/1YKuBDOicaL0c645FjcdHlr6VBTQUTwQJ/preview" allowfullscreen></iframe>
+              <div class="vid-cap">MiniBEE — new 8-DOF kinematic chain simulation</div>
+            </div>
+            <div class="media-video media-full">
+              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
+                src="https://drive.google.com/file/d/1w4oPcmm8VNQ6ogCnf5HmkZhdOEN7tmd5/preview" allowfullscreen></iframe>
+              <div class="vid-cap">MiniBEE — 6-DOF kinematic chain simulation</div>
+            </div>
+            <div class="media-pdf media-full">
+              <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
+                src="https://docs.google.com/presentation/d/1iF2TmYk_wRT-NDfFkQkrucFuPrTIHMx35AcLeYrn6Zo/preview"></iframe>
+              <div class="media-pdf-bar">
+                <span>Final MiniBEE research presentation</span>
+                <a href="https://docs.google.com/presentation/d/1iF2TmYk_wRT-NDfFkQkrucFuPrTIHMx35AcLeYrn6Zo/preview"" target="_blank">↗ Open in Drive</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- F1TENTH -->
     <div class="card reveal" id="f1tenth">
       <div class="card-header" onclick="toggle(this)">
@@ -225,73 +291,6 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         </div>
       </div>
     </div>
-
-    <!-- MINIBEE -->
-<div class="card reveal" id="minibee">
-      <div class="card-header" onclick="toggle(this)">
-        <div class="card-main">
-          <div class="card-meta"><span class="tag inst">Columbia University · ROAM Lab</span><span class="tag">Research</span><span class="tag">Prof. Matei Ciocarlie</span><span class="tag">2026</span></div>
-          <div class="card-title">MiniBEE — Manipulator Kinematic Optimization</div>
-          <div class="card-preview">Optimizing the MiniBEE manipulator kinematic chain across 6, 7, and 8 DOF configurations to minimize singularities and self-collisions while achieving full coverage of a 20 × 20 × 20 cm workspace.</div>
-        </div>
-        <div class="card-toggle">+</div>
-      </div>
-      <div class="card-detail">
-        <div class="d-sec">
-          <div class="d-label">Overview</div>
-          <div class="d-prose">
-            <p>Research at the ROAM Lab, Columbia University. MiniBEE is a compact robotic manipulator platform. The research focuses on optimizing the kinematic chain across 6, 7, and 8 DOF configurations to identify which structure achieves the fewest singularities and self-collisions while maintaining full coverage of a 20 × 20 × 20 cm cubic workspace. Work involves URDF modeling, MoveIt configuration in ROS 2, and quantitative evaluation of workspace coverage and manipulability metrics across candidate configurations.</p>
-          </div>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Technical Highlights</div>
-          <ul class="d-bullets">
-            <li>Redesigned 6-DOF kinematic chain; improved dexterity metric from 2% (lab's prior published baseline) to 23.35% through iterative link geometry and joint configuration changes</li>
-            <li>Evaluated 8-DOF configuration; achieved 90% KD metric against lab benchmark of 92%</li>
-            <li>Analyzed configurations from 6 to 9 DOF using Jacobian-based metrics: manipulability, singularities, and workspace coverage</li>
-            <li>Configured MoveIt motion planning stack; validated IK solutions under joint limits and collision constraints for bimanual task execution</li>
-            <li>Developing automated search algorithm to evaluate link length and joint configuration combinations systematically</li>          </ul>
-        </div>
-        <div class="d-sec">
-          <div class="d-label">Tools &amp; Technologies</div>
-          <div class="tech-pills"><span class="tp">ROS 2</span><span class="tp">MoveIt</span><span class="tp">URDF</span><span class="tp">Kinematics</span><span class="tp">Python</span></div>
-        </div>
-          <div class="d-sec">
-          <div class="d-label">Media</div>
-          <div class="media-grid">
-            <div class="media-video media-full">
-              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
-                src="https://drive.google.com/file/d/1a1rOna-bZ564b0pRKQlzyHo5NKEM_mCa/preview" allowfullscreen></iframe>
-              <div class="vid-cap">MiniBEE — KD metric visualization</div>
-            </div>
-            <div class="media-video media-full">
-              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
-                src="https://drive.google.com/file/d/1EV0qpioqtrA2NPR0FwOh1Yz7vG2bp5iV/preview" allowfullscreen></iframe>
-              <div class="vid-cap">MiniBEE — data collection, wide view</div>
-            </div>
-            <div class="media-video media-full">
-              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
-                src="https://drive.google.com/file/d/1YKuBDOicaL0c645FjcdHlr6VBTQUTwQJ/preview" allowfullscreen></iframe>
-              <div class="vid-cap">MiniBEE — new 8-DOF kinematic chain simulation</div>
-            </div>
-            <div class="media-video media-full">
-              <iframe style="width:100%;height:360px;border:none;border-radius:8px 8px 0 0;display:block;"
-                src="https://drive.google.com/file/d/1w4oPcmm8VNQ6ogCnf5HmkZhdOEN7tmd5/preview" allowfullscreen></iframe>
-              <div class="vid-cap">MiniBEE — 6-DOF kinematic chain simulation</div>
-            </div>
-            <div class="media-pdf media-full">
-              <iframe style="width:100%;height:680px;border:none;display:block;border-radius:8px 8px 0 0;"
-                src="https://docs.google.com/presentation/d/1iF2TmYk_wRT-NDfFkQkrucFuPrTIHMx35AcLeYrn6Zo/preview"></iframe>
-              <div class="media-pdf-bar">
-                <span>Final MiniBEE research presentation</span>
-                <a href="https://docs.google.com/presentation/d/1iF2TmYk_wRT-NDfFkQkrucFuPrTIHMx35AcLeYrn6Zo/preview"" target="_blank">↗ Open in Drive</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </div>
 <footer><span>Maxime M</span><span>© 2025 · Columbia University</span></footer>
