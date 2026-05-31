@@ -123,11 +123,18 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
         <div class="d-sec">
           <div class="d-label">Technical Highlights</div>
           <ul class="d-bullets">
-            <li>Redesigned 6-DOF kinematic chain; improved dexterity metric from 2% (lab's prior published baseline) to 29.2% through iterative link geometry and joint configuration changes</li>
-            <li>Evaluated 8-DOF configuration; achieved 90% KD metric against lab benchmark of 92%</li>
-            <li>Analyzed configurations from 6 to 9 DOF using Jacobian-based metrics: manipulability, singularities, and workspace coverage</li>
-            <li>Configured MoveIt motion planning stack; validated IK solutions under joint limits and collision constraints for bimanual task execution</li>
-            <li>Developing automated search algorithm to evaluate link length and joint configuration combinations systematically</li>          </ul>
+            j
+            <li>Redesigned the MiniBEE 6-DOF kinematic chain, improving the MoveIt-validated dexterity score from 2% to 29.2% through link-length optimization, joint-axis tuning, and joint-limit refinement.</li>
+
+            <li>Evaluated 8-DOF MiniBEE configurations using the same KD framework, achieving a 90.5% dexterity score compared with the lab’s published 92% benchmark.</li>
+
+            <li>Analyzed 6- to 9-DOF manipulator configurations using Jacobian-based metrics for manipulability, singularity avoidance, and workspace coverage.</li>
+            
+            <li>Configured and tested the MiniBEE ROS2/MoveIt pipeline, validating inverse kinematics solutions under joint-limit and collision constraints.</li>
+            
+            <li>Built an interactive Python optimization tool to systematically search link lengths, joint-axis patterns, and feasible configurations before validating top candidates in MoveIt.</li>
+            
+            <li>Created a MuJoCo simulator for more physically embodied MiniBEE visualization, enabling easier mesh setup and faster inspection of candidate manipulator geometries.</li> </ul>
         </div>
         <div class="d-sec">
           <div class="d-label">Tools &amp; Technologies</div>
