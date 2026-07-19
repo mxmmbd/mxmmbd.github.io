@@ -109,11 +109,56 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
   <div class="exp-group">
     <p class="sec-label reveal">Work Experience</p>
 
+    <!-- DEXMATE -->
+    <div class="card reveal" id="dexmate">
+        <div class="card-header" onclick="toggle(this)">
+          <div class="card-main">
+            <div class="card-meta"><span class="tag inst">Dexmate</span><span class="tag">Work Experience</span><span class="tag">Robotics Engineering Intern</span><span class="tag">Teleoperation &amp; Haptics</span><span class="tag">May 2026 – Present</span></div>
+            <div class="card-title">Dexmate — Robotics Engineering Intern</div>
+            <div class="card-preview">End-to-end development of a haptic input device for humanoid teleoperation. Actuator benchmarking, impedance control, CAN-based control stack, and single-joint hardware validation.</div>
+          </div>
+          <div class="card-toggle">+</div>
+        </div>
+        <div class="card-detail">
+          <div class="d-sec">
+            <div class="d-label">Overview</div>
+            <div class="d-prose">
+              <p>Robotics engineering internship at Dexmate, developing a haptic input device for humanoid robot teleoperation and data collection. Owning the project end-to-end across mechatronics, embedded control, and software — from architecture trade studies and actuator selection through embedded firmware, CAN integration, and single-joint hardware validation.</p>
+              <p>Conducted an architecture trade study across 12+ existing teleoperation leader systems (GELLO, ALOHA, FACTR, ACE, and others) to set the system design direction, benchmarked quasi-direct-drive and gimbal BLDC actuators, and built the control stack from firmware-level FOC commutation up to a modular Python layer with impedance control, safety watchdogs, and data logging — validated on a custom-designed single-joint haptic test rig.</p>
+            </div>
+          </div>
+          <div class="d-sec">
+            <div class="d-label">Technical Highlights</div>
+            <ul class="d-bullets">
+              <li>Architecture trade study of 12+ teleoperation leader systems (GELLO, ALOHA, FACTR, ACE) — passive vs. active vs. hybrid designs evaluated on transparency, cost, ergonomics, manufacturability</li>
+              <li>Benchmarked QDD and gimbal BLDC actuators (CubeMars GL40 II, DAMIAO J4310, GM4108H) on torque density, backdrivability, reflected inertia, thermal limits, and cost; delivered actuator recommendation</li>
+              <li>Torque, velocity, and position control (MIT mode) of QDD actuators over CAN bus</li>
+              <li>Modular Python control stack for CubeMars and DAMIAO protocols — runtime tuning, calibration, logging, safety watchdogs</li>
+              <li>Impedance controllers (virtual spring-damper, feedforward, deadband, saturation) tuned on single-joint haptic test rig</li>
+              <li>BLDC prototype from scratch: Arduino Mega + SimpleFOC Mini (DRV8313) + AS5600 encoder; C++ firmware for FOC commutation and closed-loop position control</li>
+              <li>Leader-follower position tracking between two BLDC joints</li>
+              <li>Safety layer across firmware and software: torque/current limits, communication watchdogs, joint limits, safe startup/shutdown sequencing</li>
+              <li>Single-joint test rigs designed in CAD and fabricated — motor mounts, 3D-printed linkages, shaft adapters, bearing supports</li>
+              <li>Cross-domain hardware debugging: driver fault states, encoder misreads, control oscillations; repeatable fault-recovery procedures</li>
+            </ul>
+          </div>
+          <div class="d-sec">
+            <div class="d-label">Tools &amp; Technologies</div>
+            <div class="tech-pills"><span class="tp">Python</span><span class="tp">C++</span><span class="tp">CAN Bus</span><span class="tp">SimpleFOC</span><span class="tp">BLDC / QDD Actuators</span><span class="tp">Impedance Control</span><span class="tp">Arduino</span><span class="tp">AS5600 / AS5048 Encoders</span><span class="tp">CAD</span><span class="tp">3D Printing</span><span class="tp">Haptics</span><span class="tp">Teleoperation</span></div>
+          </div>
+        </div>
+    </div>
+
+
+
+
+
+    
     <!-- SBB -->
     <div class="card reveal" id="sbb">
         <div class="card-header" onclick="toggle(this)">
           <div class="card-main">
-            <div class="card-meta"><span class="tag inst">HSLU · Swiss Federal Railways (SBB)</span><span class="tag">Work Experience</span><span class="tag">AI &amp; Robotics Researcher</span><span class="tag">Sep 2024 – Jan 2025</span></div>
+            <div class="card-meta"><span class="tag inst">HSLU · Swiss Federal Railways (SBB)</span><span class="tag">Work Experience</span><span class="tag">Prof. Bjoern Jensen</span><span class="tag">AI &amp; Robotics Researcher</span><span class="tag">Sep 2024 – Jan 2025</span></div>
             <div class="card-title">HSLU / SBB — AI &amp; Robotics Researcher</div>
             <div class="card-preview">Real-time rail detection for an autonomous maintenance robot. 97.8% accuracy at 30 FPS. Sensor hardware iterated across three design cycles. Presented at Swiss Robotics Day 2024.</div>
           </div>
