@@ -109,46 +109,94 @@ footer{border-top:1px solid var(--border);padding:1.5rem 2rem;max-width:740px;ma
   <div class="exp-group">
     <p class="sec-label reveal">Work Experience</p>
 
-    <!-- DEXMATE -->
-    <div class="card reveal" id="dexmate">
-        <div class="card-header" onclick="toggle(this)">
-          <div class="card-main">
-            <div class="card-meta"><span class="tag inst">Dexmate</span><span class="tag">Work Experience</span><span class="tag">Robotics Engineering Intern</span><span class="tag">Teleoperation &amp; Haptics</span><span class="tag">May 2026 – Present</span></div>
-            <div class="card-title">Dexmate — Robotics Engineering Intern</div>
-            <div class="card-preview">End-to-end development of a haptic input device for humanoid teleoperation. Actuator benchmarking, impedance control, CAN-based control stack, and single-joint hardware validation.</div>
-          </div>
-          <div class="card-toggle">+</div>
-        </div>
-        <div class="card-detail">
-          <div class="d-sec">
-            <div class="d-label">Overview</div>
-            <div class="d-prose">
-              <p>Robotics engineering internship at Dexmate, developing a haptic input device for humanoid robot teleoperation and data collection. Owning the project end-to-end across mechatronics, embedded control, and software — from architecture trade studies and actuator selection through embedded firmware, CAN integration, and single-joint hardware validation.</p>
-              <p>Conducted an architecture trade study across 12+ existing teleoperation leader systems (GELLO, ALOHA, FACTR, ACE, and others) to set the system design direction, benchmarked quasi-direct-drive and gimbal BLDC actuators, and built the control stack from firmware-level FOC commutation up to a modular Python layer with impedance control, safety watchdogs, and data logging — validated on a custom-designed single-joint haptic test rig.</p>
-            </div>
-          </div>
-          <div class="d-sec">
-            <div class="d-label">Technical Highlights</div>
-            <ul class="d-bullets">
-              <li>Architecture trade study of 12+ teleoperation leader systems (GELLO, ALOHA, FACTR, ACE) — passive vs. active vs. hybrid designs evaluated on transparency, cost, ergonomics, manufacturability</li>
-              <li>Benchmarked QDD and gimbal BLDC actuators (CubeMars GL40 II, DAMIAO J4310, GM4108H) on torque density, backdrivability, reflected inertia, thermal limits, and cost; delivered actuator recommendation</li>
-              <li>Torque, velocity, and position control (MIT mode) of QDD actuators over CAN bus</li>
-              <li>Modular Python control stack for CubeMars and DAMIAO protocols — runtime tuning, calibration, logging, safety watchdogs</li>
-              <li>Impedance controllers (virtual spring-damper, feedforward, deadband, saturation) tuned on single-joint haptic test rig</li>
-              <li>BLDC prototype from scratch: Arduino Mega + SimpleFOC Mini (DRV8313) + AS5600 encoder; C++ firmware for FOC commutation and closed-loop position control</li>
-              <li>Leader-follower position tracking between two BLDC joints</li>
-              <li>Safety layer across firmware and software: torque/current limits, communication watchdogs, joint limits, safe startup/shutdown sequencing</li>
-              <li>Single-joint test rigs designed in CAD and fabricated — motor mounts, 3D-printed linkages, shaft adapters, bearing supports</li>
-              <li>Cross-domain hardware debugging: driver fault states, encoder misreads, control oscillations; repeatable fault-recovery procedures</li>
-            </ul>
-          </div>
-          <div class="d-sec">
-            <div class="d-label">Tools &amp; Technologies</div>
-            <div class="tech-pills"><span class="tp">Python</span><span class="tp">C++</span><span class="tp">CAN Bus</span><span class="tp">SimpleFOC</span><span class="tp">BLDC / QDD Actuators</span><span class="tp">Impedance Control</span><span class="tp">Arduino</span><span class="tp">AS5600 / AS5048 Encoders</span><span class="tp">CAD Solidworks</span><span class="tp">3D Printing</span><span class="tp">Haptics</span><span class="tp">Teleoperation</span></div>
-          </div>
-        </div>
+<!-- DEXMATE -->
+<div class="card reveal" id="dexmate">
+  <div class="card-header" onclick="toggle(this)">
+    <div class="card-main">
+      <div class="card-meta">
+        <span class="tag inst">Dexmate</span>
+        <span class="tag">Work Experience</span>
+        <span class="tag">Robotics Engineering Intern</span>
+        <span class="tag">Humanoid Teleoperation &amp; Haptics</span>
+        <span class="tag">May – Aug 2026</span>
+      </div>
+      <div class="card-title">Dexmate — Robotics Engineering Intern</div>
+      <div class="card-preview">Built a bilateral haptic teleoperation exoskeleton for humanoid robotics, progressing from a single-joint control rig to a seven-joint wearable arm and dual-arm integration. Developed the haptic control architecture, eliminated false free-space resistance, and rendered simulated robot contact back to the operator in real time.</div>
     </div>
-    
+    <div class="card-toggle">+</div>
+  </div>
+
+  <div class="card-detail">
+
+    <div class="d-sec">
+      <div class="d-label">Overview</div>
+      <div class="d-prose">
+        <p>During a 14-week robotics engineering internship at Dexmate, I developed a wearable bilateral teleoperation system for humanoid robotics. The exoskeleton mapped the operator's arm motion to a humanoid while providing haptic feedback — when the robot encountered contact or could not follow the commanded motion, the corresponding wearable joint pushed back against the operator.</p>
+        <p>The central challenge was not simply moving the robot, but deciding what resistance the operator should feel. Directly reflecting estimated actuator torque produced noisy and unreliable behavior, so I tested several control approaches and developed a position-based impedance controller. Instead of relying on measured force, disagreement between the wearable and follower positions generated a controlled virtual spring-damper response. A single-joint hardware rig was used to tune and validate the approach before scaling it to the wearable system.</p>
+        <p>Across eight proofs of concept, the project progressed from bench-top motor control to a seven-joint wearable arm, simulation-in-the-loop haptics, and dual-arm integration. I also worked across mechanical design, CAN communication, calibration, real-time software, safety logic, and system commissioning. Final demonstrations included feeling contact with a MuJoCo-simulated humanoid through the wearable and teleoperating the physical humanoid robot.</p>
+      </div>
+    </div>
+
+    <div class="d-sec">
+      <div class="d-label">Technical Highlights</div>
+      <ul class="d-bullets">
+        <li>Designed the wearable arm from the humanoid's kinematic model and URDF rather than proprietary robot CAD, including mechanical joint limits matched to the robot's usable workspace</li>
+        <li>Developed a position-based impedance controller that renders a virtual spring-damper from wearable-to-follower position error instead of directly reflecting noisy estimated actuator torque</li>
+        <li>Validated the control approach on a single-joint hardware rig: contact occurred at 64.8° versus 65.3° predicted, while the usable haptic torque limit was increased 50% from 0.70 to 1.05 N·m</li>
+        <li>Eliminated false resistance during free motion: measured spurious haptic torque on the validation trajectory was reduced from 0.178 N·m to 0.000 N·m</li>
+        <li>Scaled the controller from one joint to seven independent wearable joints running at a 50 Hz outer control loop, with haptic feedback demonstrated across all seven joints</li>
+        <li>Integrated both wearable arms into the final system, with fourteen actuators communicating over a shared CAN network and a single operator-side tether</li>
+        <li>Integrated a MuJoCo humanoid as the follower, increasing simulation communication from 60 to 250 Hz and reaching 2.21 ms median internal round-trip latency; simulated collisions generated resistance at the corresponding wearable joint</li>
+        <li>Diagnosed real-time timing failures including coarse Windows timing that introduced ±25–35% error into velocity and filter calculations, plus thread starvation that reduced a nominal 250 Hz process to 48 Hz; corrected both before final integration</li>
+        <li>Implemented safety behavior including operator-posture startup checks, reduced-torque arming, joint-limit haptic walls, stale-data detection, communication liveness checks, and torque clamping</li>
+      </ul>
+    </div>
+
+    <div class="d-sec">
+      <div class="d-label">Tools &amp; Technologies</div>
+      <div class="tech-pills"><span class="tp">Python</span><span class="tp">MuJoCo</span><span class="tp">CAN Bus</span><span class="tp">SolidWorks</span><span class="tp">URDF</span><span class="tp">Haptic Feedback</span><span class="tp">Impedance Control</span><span class="tp">Real-Time Control</span><span class="tp">Embedded Systems</span><span class="tp">Mechatronics</span><span class="tp">Control Systems</span><span class="tp">C++ / Arduino</span></div>
+    </div>
+
+    <div class="d-sec">
+      <div class="d-label">Media</div>
+      <div class="media-grid">
+
+        <!-- PHOTO 1: FINAL DUAL-ARM SYSTEM — USE THIS AS THE HERO IMAGE -->
+        <div class="media-img media-full" onclick="openLb('https://drive.google.com/thumbnail?id=DEXMATE_FINAL_DUAL_ARM_FILE_ID&amp;sz=w1200','Final dual-arm wearable teleoperation system')">
+          <img src="https://drive.google.com/thumbnail?id=DEXMATE_FINAL_DUAL_ARM_FILE_ID&amp;sz=w800" alt="Final dual-arm wearable teleoperation system" style="height:420px;">
+          <div class="img-cap">Final dual-arm wearable teleoperation system — two seven-joint arms integrated into the operator-side system</div>
+        </div>
+
+        <!-- PHOTO 2: EARLY 1-DOF BENCH PROTOTYPE -->
+        <div class="media-img" onclick="openLb('https://drive.google.com/thumbnail?id=DEXMATE_1DOF_FILE_ID&amp;sz=w1200','Single-joint haptic validation rig')">
+          <img src="https://drive.google.com/thumbnail?id=DEXMATE_1DOF_FILE_ID&amp;sz=w800" alt="Single-joint haptic validation rig">
+          <div class="img-cap">Single-joint haptic rig — used to develop and validate the control approach before scaling to the wearable system</div>
+        </div>
+
+        <!-- PHOTO 3: COMPLETED SEVEN-JOINT ARM BEING WORN -->
+        <div class="media-img" onclick="openLb('https://drive.google.com/thumbnail?id=DEXMATE_7DOF_ARM_FILE_ID&amp;sz=w1200','Seven-joint wearable arm')">
+          <img src="https://drive.google.com/thumbnail?id=DEXMATE_7DOF_ARM_FILE_ID&amp;sz=w800" alt="Seven-joint wearable arm">
+          <div class="img-cap">Seven-joint wearable arm — mechanical integration, joint limits, wiring and operator fit</div>
+        </div>
+
+        <!-- VIDEO 1: MUJOCO CONTACT / HAPTIC FEEDBACK -->
+        <div class="media-video media-full">
+          <iframe style="width:100%;height:420px;border:none;border-radius:8px 8px 0 0;display:block;"
+            src="https://drive.google.com/file/d/DEXMATE_MUJOCO_VIDEO_FILE_ID/preview" allowfullscreen></iframe>
+          <div class="vid-cap">Simulation-in-the-loop haptics — contact with the virtual environment produces resistance at the corresponding wearable joint</div>
+        </div>
+
+        <!-- PHOTO OR VIDEO 4: PHYSICAL HUMANOID TELEOPERATION -->
+        <div class="media-img media-full" onclick="openLb('https://drive.google.com/thumbnail?id=DEXMATE_HUMANOID_TELEOP_FILE_ID&amp;sz=w1200','Teleoperating the physical humanoid')">
+          <img src="https://drive.google.com/thumbnail?id=DEXMATE_HUMANOID_TELEOP_FILE_ID&amp;sz=w800" alt="Teleoperating the physical humanoid" style="height:360px;">
+          <div class="img-cap">Final teleoperation demonstration — commanding the physical humanoid with the wearable system</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>    
     <!-- SBB -->
     <div class="card reveal" id="sbb">
         <div class="card-header" onclick="toggle(this)">
